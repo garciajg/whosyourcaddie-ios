@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let APIURL = "http://0.0.0.0:8000/login/"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
