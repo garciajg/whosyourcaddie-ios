@@ -1,0 +1,6 @@
+framework module Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests {
+  umbrella header "Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

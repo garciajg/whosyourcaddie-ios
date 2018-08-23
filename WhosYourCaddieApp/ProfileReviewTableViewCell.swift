@@ -9,6 +9,16 @@
 import UIKit
 
 class ProfileReviewTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var reviewProfileImage: UIImageView!
+    @IBOutlet weak var reviewRatingImage: UIImageView!
+    @IBOutlet weak var reviewGreenSkillsImage: UIImageView!
+    
+    @IBOutlet weak var reviewNameLabel: UILabel!
+    @IBOutlet weak var reviewRatingLabel: UILabel!
+    @IBOutlet weak var reviewGreenSkillsLabel: UILabel!
+    @IBOutlet weak var reviewCreatedLabel: UILabel!
+    @IBOutlet weak var reviewCommentLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

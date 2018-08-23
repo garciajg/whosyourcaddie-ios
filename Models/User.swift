@@ -21,16 +21,18 @@ class User {
     var zipcode : String = ""
     var dateOfBirth : String = ""
     var userType : String = ""
-//    var loops : [Any] = []
-//    var reviews : [Any] = []
+    var loops : [Loop] = []
+    var reviews : [Review] = []
 
 }
 
 class Caddie: User {
+    
+    var user = User()
 
-    var rating : Int = 0
-    var greenSkills : Int = 0
-    var caddieId : Int = 0
+    var rating : Double = 0.0
+    var greenSkills : Double = 0.0
+    
 }
 
 class Golfer:User {

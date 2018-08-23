@@ -9,7 +9,7 @@
 import UIKit
 
 class UserTypeViewController: UIViewController {
-
+    var user = User()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +21,27 @@ class UserTypeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didPressCaddieButton(_ sender: Any) {
+    }
+    
+    @IBAction func didPressGolferButton(_ sender: Any) {
+    }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "caddiesegue" {
+            let vc = segue.destination as! SignUpViewController
+            self.user.userType = "CADDY"
+            vc.user = self.user
+            vc.signUpURL = URL(string: "http://0.0.0.0:8000/caddie/register")
+        } else if segue.identifier == "golfersegue" {
+            let vc = segue.destination as! SignUpViewController
+            self.user.userType = "GOLFR"
+            vc.user = self.user
+            vc.signUpURL = URL(string: "http://0.0.0.0:8000/golfer/register")
+        }
     }
-    */
 
 }

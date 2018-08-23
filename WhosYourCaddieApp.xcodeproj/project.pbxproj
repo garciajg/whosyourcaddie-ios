@@ -7,13 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		128E1849D42C2D24A718BC47 /* Pods_WhosYourCaddieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9015EBE85559B7C38E7B9177 /* Pods_WhosYourCaddieAppTests.framework */; };
+		6AFCBA05B8EEB0B9EE74FA0D /* Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8097CD45B9047A58DC8ACF4D /* Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework */; };
+		6CA3B3508976D5ED3D7291C1 /* Pods_WhosYourCaddieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96D14438AC68F95CBF3B29C /* Pods_WhosYourCaddieApp.framework */; };
+		84AF2A4051B2E5E40F0FA35F /* Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F69F8FD87DBF7D5E9B8545 /* Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework */; };
+		BABB423767A397DC83E7B42F /* Pods_WhosYourCaddieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B0E302E16B04059DDA7D0 /* Pods_WhosYourCaddieAppUITests.framework */; };
+		BE0F62B92102315F0099FA53 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F62B82102315F0099FA53 /* SignInViewController.swift */; };
+		BE0F62BB210234000099FA53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F62BA210234000099FA53 /* HomeViewController.swift */; };
+		BE0F62BD210628230099FA53 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F62BC210628230099FA53 /* User.swift */; };
+		BE261E4F20FFF8B400C0DBF5 /* CaddieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE261E4E20FFF8B400C0DBF5 /* CaddieListTableViewCell.swift */; };
 		BE303B5B20E2ABB100D653A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303B5A20E2ABB100D653A0 /* AppDelegate.swift */; };
-		BE303B5D20E2ABB100D653A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303B5C20E2ABB100D653A0 /* ViewController.swift */; };
 		BE303B6020E2ABB100D653A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE303B5E20E2ABB100D653A0 /* Main.storyboard */; };
 		BE303B6220E2ABB600D653A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE303B6120E2ABB600D653A0 /* Assets.xcassets */; };
 		BE303B6520E2ABB600D653A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE303B6320E2ABB600D653A0 /* LaunchScreen.storyboard */; };
 		BE303B7020E2ABB600D653A0 /* WhosYourCaddieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303B6F20E2ABB600D653A0 /* WhosYourCaddieAppTests.swift */; };
 		BE303B7B20E2ABB600D653A0 /* WhosYourCaddieAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303B7A20E2ABB600D653A0 /* WhosYourCaddieAppUITests.swift */; };
+		BE6CE4EE2106A077009C3812 /* UserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CE4ED2106A077009C3812 /* UserTypeViewController.swift */; };
+		BE6E54952118EC6300328C17 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E54942118EC6300328C17 /* ProfileViewController.swift */; };
+		BE6E54972118F46000328C17 /* ProfileReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E54962118F46000328C17 /* ProfileReviewTableViewCell.swift */; };
+		BE7C7611212469CE0031960F /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C7610212469CE0031960F /* LoginTests.swift */; };
+		BEA31FC7212F1531001BB629 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA31FC6212F1531001BB629 /* QuestionsViewController.swift */; };
+		BEA31FC9212F200A001BB629 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA31FC8212F2009001BB629 /* Question.swift */; };
+		BEA31FCB212F2042001BB629 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA31FCA212F2042001BB629 /* QuestionBank.swift */; };
+		BEBC22332124A92800BEAD66 /* Loop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC22322124A92800BEAD66 /* Loop.swift */; };
+		BEBC22362124A96800BEAD66 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC22352124A96800BEAD66 /* Review.swift */; };
+		BEBC22382124AC2C00BEAD66 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC22372124AC2C00BEAD66 /* Course.swift */; };
+		BEBC223A2124D06900BEAD66 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBC22392124D06900BEAD66 /* Storyboard.storyboard */; };
+		BEBC223E2124D16E00BEAD66 /* CaddieHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC223D2124D16E00BEAD66 /* CaddieHomeViewController.swift */; };
+		BEBC22402124D27E00BEAD66 /* CaddieProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC223F2124D27E00BEAD66 /* CaddieProfileViewController.swift */; };
+		BEBC22422124D31C00BEAD66 /* CaddieLoopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC22412124D31C00BEAD66 /* CaddieLoopViewController.swift */; };
+		BECB7B9820E2C32E00C47C56 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB7B9720E2C32E00C47C56 /* SignUpViewController.swift */; };
+		BEE1AA1B210788DD00E1EB10 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1AA1A210788DD00E1EB10 /* CourseViewController.swift */; };
+		BEE1AA1D21078F7000E1EB10 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1AA1C21078F7000E1EB10 /* LocationSearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +59,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04F69F8FD87DBF7D5E9B8545 /* Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30D93D91D20D21AE8EEA497C /* Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppTests/Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		3644596A1FFD3EFEF5093628 /* Pods-WhosYourCaddieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieApp/Pods-WhosYourCaddieApp.release.xcconfig"; sourceTree = "<group>"; };
+		5EF7256F1B543D48B19FBF76 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppTests/Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7D9B0E302E16B04059DDA7D0 /* Pods_WhosYourCaddieAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8097CD45B9047A58DC8ACF4D /* Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83AC76F4C26C511859B85150 /* Pods-WhosYourCaddieAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieAppUITests/Pods-WhosYourCaddieAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9015EBE85559B7C38E7B9177 /* Pods_WhosYourCaddieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A5B73FF40BB500238871FAB /* Pods-WhosYourCaddieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieAppUITests/Pods-WhosYourCaddieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AAA784DD10CB6F02E1422C90 /* Pods-WhosYourCaddieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieAppTests/Pods-WhosYourCaddieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE0F62B82102315F0099FA53 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = ../SignInViewController.swift; sourceTree = "<group>"; };
+		BE0F62BA210234000099FA53 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BE0F62BC210628230099FA53 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BE261E4E20FFF8B400C0DBF5 /* CaddieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaddieListTableViewCell.swift; sourceTree = "<group>"; };
 		BE303B5720E2ABB100D653A0 /* WhosYourCaddieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhosYourCaddieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE303B5A20E2ABB100D653A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE303B5C20E2ABB100D653A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BE303B5F20E2ABB100D653A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE303B6120E2ABB600D653A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE303B6420E2ABB600D653A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +85,28 @@
 		BE303B7620E2ABB600D653A0 /* WhosYourCaddieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhosYourCaddieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE303B7A20E2ABB600D653A0 /* WhosYourCaddieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosYourCaddieAppUITests.swift; sourceTree = "<group>"; };
 		BE303B7C20E2ABB600D653A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE6CE4ED2106A077009C3812 /* UserTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeViewController.swift; sourceTree = "<group>"; };
+		BE6E54942118EC6300328C17 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BE6E54962118F46000328C17 /* ProfileReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewTableViewCell.swift; sourceTree = "<group>"; };
+		BE7C7610212469CE0031960F /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		BEA31FC6212F1531001BB629 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionsViewController.swift; path = CaddieViewControllers/QuestionsViewController.swift; sourceTree = SOURCE_ROOT; };
+		BEA31FC8212F2009001BB629 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		BEA31FCA212F2042001BB629 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
+		BEBC22322124A92800BEAD66 /* Loop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loop.swift; sourceTree = "<group>"; };
+		BEBC22352124A96800BEAD66 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		BEBC22372124AC2C00BEAD66 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		BEBC22392124D06900BEAD66 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		BEBC223D2124D16E00BEAD66 /* CaddieHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaddieHomeViewController.swift; path = CaddieViewControllers/CaddieHomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		BEBC223F2124D27E00BEAD66 /* CaddieProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaddieProfileViewController.swift; path = CaddieViewControllers/CaddieProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		BEBC22412124D31C00BEAD66 /* CaddieLoopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaddieLoopViewController.swift; path = CaddieViewControllers/CaddieLoopViewController.swift; sourceTree = SOURCE_ROOT; };
+		BECB7B9720E2C32E00C47C56 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BEE1AA1A210788DD00E1EB10 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		BEE1AA1C21078F7000E1EB10 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		C380C6581FCFD93215686A55 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C4E2A99602B50F308D372B44 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C96D14438AC68F95CBF3B29C /* Pods_WhosYourCaddieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7075BE7E0AF57B0A1ADF87 /* Pods-WhosYourCaddieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieApp/Pods-WhosYourCaddieApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E73A70CD93C536CD6E5B5179 /* Pods-WhosYourCaddieAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieAppTests/Pods-WhosYourCaddieAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CA3B3508976D5ED3D7291C1 /* Pods_WhosYourCaddieApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				128E1849D42C2D24A718BC47 /* Pods_WhosYourCaddieAppTests.framework in Frameworks */,
+				6AFCBA05B8EEB0B9EE74FA0D /* Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,19 +131,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABB423767A397DC83E7B42F /* Pods_WhosYourCaddieAppUITests.framework in Frameworks */,
+				84AF2A4051B2E5E40F0FA35F /* Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D4C287B4D4D756DA0D05C05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC7075BE7E0AF57B0A1ADF87 /* Pods-WhosYourCaddieApp.debug.xcconfig */,
+				3644596A1FFD3EFEF5093628 /* Pods-WhosYourCaddieApp.release.xcconfig */,
+				AAA784DD10CB6F02E1422C90 /* Pods-WhosYourCaddieAppTests.debug.xcconfig */,
+				E73A70CD93C536CD6E5B5179 /* Pods-WhosYourCaddieAppTests.release.xcconfig */,
+				83AC76F4C26C511859B85150 /* Pods-WhosYourCaddieAppUITests.debug.xcconfig */,
+				9A5B73FF40BB500238871FAB /* Pods-WhosYourCaddieAppUITests.release.xcconfig */,
+				5EF7256F1B543D48B19FBF76 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.debug.xcconfig */,
+				30D93D91D20D21AE8EEA497C /* Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.release.xcconfig */,
+				C380C6581FCFD93215686A55 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.debug.xcconfig */,
+				C4E2A99602B50F308D372B44 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B17ABF0C99D254F4078A525F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C96D14438AC68F95CBF3B29C /* Pods_WhosYourCaddieApp.framework */,
+				9015EBE85559B7C38E7B9177 /* Pods_WhosYourCaddieAppTests.framework */,
+				7D9B0E302E16B04059DDA7D0 /* Pods_WhosYourCaddieAppUITests.framework */,
+				8097CD45B9047A58DC8ACF4D /* Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework */,
+				04F69F8FD87DBF7D5E9B8545 /* Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE303B4E20E2ABB100D653A0 = {
 			isa = PBXGroup;
 			children = (
+				BEBC223C2124D11500BEAD66 /* Views */,
+				BEBC223B2124D06F00BEAD66 /* CaddieViewControllers */,
+				BEBC22342124A93500BEAD66 /* Models */,
 				BE303B5920E2ABB100D653A0 /* WhosYourCaddieApp */,
 				BE303B6E20E2ABB600D653A0 /* WhosYourCaddieAppTests */,
 				BE303B7920E2ABB600D653A0 /* WhosYourCaddieAppUITests */,
 				BE303B5820E2ABB100D653A0 /* Products */,
+				2D4C287B4D4D756DA0D05C05 /* Pods */,
+				B17ABF0C99D254F4078A525F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,11 +196,17 @@
 		BE303B5920E2ABB100D653A0 /* WhosYourCaddieApp */ = {
 			isa = PBXGroup;
 			children = (
+				BE6E54962118F46000328C17 /* ProfileReviewTableViewCell.swift */,
+				BE6E54942118EC6300328C17 /* ProfileViewController.swift */,
+				BE0F62B82102315F0099FA53 /* SignInViewController.swift */,
+				BE0F62BA210234000099FA53 /* HomeViewController.swift */,
+				BE6CE4ED2106A077009C3812 /* UserTypeViewController.swift */,
 				BE303B5A20E2ABB100D653A0 /* AppDelegate.swift */,
-				BE303B5C20E2ABB100D653A0 /* ViewController.swift */,
-				BE303B5E20E2ABB100D653A0 /* Main.storyboard */,
+				BEE1AA1A210788DD00E1EB10 /* CourseViewController.swift */,
+				BECB7B9720E2C32E00C47C56 /* SignUpViewController.swift */,
+				BEE1AA1C21078F7000E1EB10 /* LocationSearchTableViewController.swift */,
+				BE261E4E20FFF8B400C0DBF5 /* CaddieListTableViewCell.swift */,
 				BE303B6120E2ABB600D653A0 /* Assets.xcassets */,
-				BE303B6320E2ABB600D653A0 /* LaunchScreen.storyboard */,
 				BE303B6620E2ABB600D653A0 /* Info.plist */,
 			);
 			path = WhosYourCaddieApp;
@@ -111,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				BE303B6F20E2ABB600D653A0 /* WhosYourCaddieAppTests.swift */,
+				BE7C7610212469CE0031960F /* LoginTests.swift */,
 				BE303B7120E2ABB600D653A0 /* Info.plist */,
 			);
 			path = WhosYourCaddieAppTests;
@@ -125,6 +231,40 @@
 			path = WhosYourCaddieAppUITests;
 			sourceTree = "<group>";
 		};
+		BEBC22342124A93500BEAD66 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BEA31FC8212F2009001BB629 /* Question.swift */,
+				BEA31FCA212F2042001BB629 /* QuestionBank.swift */,
+				BE0F62BC210628230099FA53 /* User.swift */,
+				BEBC22322124A92800BEAD66 /* Loop.swift */,
+				BEBC22372124AC2C00BEAD66 /* Course.swift */,
+				BEBC22352124A96800BEAD66 /* Review.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BEBC223B2124D06F00BEAD66 /* CaddieViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BEA31FC6212F1531001BB629 /* QuestionsViewController.swift */,
+				BEBC223D2124D16E00BEAD66 /* CaddieHomeViewController.swift */,
+				BEBC223F2124D27E00BEAD66 /* CaddieProfileViewController.swift */,
+				BEBC22412124D31C00BEAD66 /* CaddieLoopViewController.swift */,
+			);
+			path = CaddieViewControllers;
+			sourceTree = "<group>";
+		};
+		BEBC223C2124D11500BEAD66 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE303B5E20E2ABB100D653A0 /* Main.storyboard */,
+				BEBC22392124D06900BEAD66 /* Storyboard.storyboard */,
+				BE303B6320E2ABB600D653A0 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +272,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE303B7F20E2ABB700D653A0 /* Build configuration list for PBXNativeTarget "WhosYourCaddieApp" */;
 			buildPhases = (
+				483062F4FB93CDB5F5C6B94B /* [CP] Check Pods Manifest.lock */,
 				BE303B5320E2ABB100D653A0 /* Sources */,
 				BE303B5420E2ABB100D653A0 /* Frameworks */,
 				BE303B5520E2ABB100D653A0 /* Resources */,
+				625FE71F3D1800471237F1D9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +291,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE303B8220E2ABB700D653A0 /* Build configuration list for PBXNativeTarget "WhosYourCaddieAppTests" */;
 			buildPhases = (
+				D04888A4E67E2DA90458BAAE /* [CP] Check Pods Manifest.lock */,
 				BE303B6720E2ABB600D653A0 /* Sources */,
 				BE303B6820E2ABB600D653A0 /* Frameworks */,
 				BE303B6920E2ABB600D653A0 /* Resources */,
@@ -167,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE303B8520E2ABB700D653A0 /* Build configuration list for PBXNativeTarget "WhosYourCaddieAppUITests" */;
 			buildPhases = (
+				01266D85C00537961CF5AF2B /* [CP] Check Pods Manifest.lock */,
 				BE303B7220E2ABB600D653A0 /* Sources */,
 				BE303B7320E2ABB600D653A0 /* Frameworks */,
 				BE303B7420E2ABB600D653A0 /* Resources */,
+				0D0D021ECEAA875AE918A5FC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE303B6520E2ABB600D653A0 /* LaunchScreen.storyboard in Resources */,
+				BEBC223A2124D06900BEAD66 /* Storyboard.storyboard in Resources */,
 				BE303B6220E2ABB600D653A0 /* Assets.xcassets in Resources */,
 				BE303B6020E2ABB100D653A0 /* Main.storyboard in Resources */,
 			);
@@ -251,13 +397,132 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01266D85C00537961CF5AF2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D0D021ECEAA875AE918A5FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		483062F4FB93CDB5F5C6B94B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WhosYourCaddieApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		625FE71F3D1800471237F1D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WhosYourCaddieApp/Pods-WhosYourCaddieApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhosYourCaddieApp/Pods-WhosYourCaddieApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D04888A4E67E2DA90458BAAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WhosYourCaddieAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE303B5320E2ABB100D653A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE303B5D20E2ABB100D653A0 /* ViewController.swift in Sources */,
+				BE0F62BB210234000099FA53 /* HomeViewController.swift in Sources */,
+				BE0F62B92102315F0099FA53 /* SignInViewController.swift in Sources */,
+				BEBC22402124D27E00BEAD66 /* CaddieProfileViewController.swift in Sources */,
+				BE6E54952118EC6300328C17 /* ProfileViewController.swift in Sources */,
+				BEBC22332124A92800BEAD66 /* Loop.swift in Sources */,
+				BEBC22422124D31C00BEAD66 /* CaddieLoopViewController.swift in Sources */,
+				BE6E54972118F46000328C17 /* ProfileReviewTableViewCell.swift in Sources */,
+				BEBC223E2124D16E00BEAD66 /* CaddieHomeViewController.swift in Sources */,
+				BE0F62BD210628230099FA53 /* User.swift in Sources */,
+				BECB7B9820E2C32E00C47C56 /* SignUpViewController.swift in Sources */,
+				BEE1AA1D21078F7000E1EB10 /* LocationSearchTableViewController.swift in Sources */,
+				BEBC22382124AC2C00BEAD66 /* Course.swift in Sources */,
+				BEBC22362124A96800BEAD66 /* Review.swift in Sources */,
+				BEA31FCB212F2042001BB629 /* QuestionBank.swift in Sources */,
+				BE261E4F20FFF8B400C0DBF5 /* CaddieListTableViewCell.swift in Sources */,
+				BEA31FC7212F1531001BB629 /* QuestionsViewController.swift in Sources */,
+				BEE1AA1B210788DD00E1EB10 /* CourseViewController.swift in Sources */,
 				BE303B5B20E2ABB100D653A0 /* AppDelegate.swift in Sources */,
+				BEA31FC9212F200A001BB629 /* Question.swift in Sources */,
+				BE6CE4EE2106A077009C3812 /* UserTypeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE303B7020E2ABB600D653A0 /* WhosYourCaddieAppTests.swift in Sources */,
+				BE7C7611212469CE0031960F /* LoginTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,9 +694,11 @@
 		};
 		BE303B8020E2ABB700D653A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC7075BE7E0AF57B0A1ADF87 /* Pods-WhosYourCaddieApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QBXS3VTMU;
 				INFOPLIST_FILE = WhosYourCaddieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,9 +713,11 @@
 		};
 		BE303B8120E2ABB700D653A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3644596A1FFD3EFEF5093628 /* Pods-WhosYourCaddieApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QBXS3VTMU;
 				INFOPLIST_FILE = WhosYourCaddieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +732,7 @@
 		};
 		BE303B8320E2ABB700D653A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAA784DD10CB6F02E1422C90 /* Pods-WhosYourCaddieAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -482,6 +753,7 @@
 		};
 		BE303B8420E2ABB700D653A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E73A70CD93C536CD6E5B5179 /* Pods-WhosYourCaddieAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +774,7 @@
 		};
 		BE303B8620E2ABB700D653A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C380C6581FCFD93215686A55 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -521,6 +794,7 @@
 		};
 		BE303B8720E2ABB700D653A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4E2A99602B50F308D372B44 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

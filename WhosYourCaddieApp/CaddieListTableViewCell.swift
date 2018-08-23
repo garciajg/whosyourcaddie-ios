@@ -9,7 +9,17 @@
 import UIKit
 
 class CaddieListTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var caddiePhoto: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var greenSkillsLabel: UILabel!
+    @IBOutlet weak var rankingLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationPicture: UIImageView!
+    @IBOutlet weak var greenSPicture: UIImageView!
+    @IBOutlet weak var ratingPicture: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

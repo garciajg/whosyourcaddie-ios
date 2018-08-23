@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Course {
+    let name : String = ""
+    let altitude : Float = 0.0
+    let longitude : Float = 0.0
+}

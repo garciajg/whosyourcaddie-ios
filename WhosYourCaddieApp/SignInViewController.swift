@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SignInViewController.swift
 //  WhosYourCaddieApp
 //
 //  Created by Jose Garcia on 6/26/18.
@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     let APIURL = "http://0.0.0.0:8000/login/"
 
+    @IBAction func emailTextField(_ sender: UITextField) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class Review {
+    
+    var createdOn : String = ""
+    var comment : String = ""
+    var rating : Double = 0.0
+    var greenSkills : Double = 0.0
+    var golfer : Golfer? = nil
+    var caddie : Caddie? = nil
+    var id : Int = 0
+}
