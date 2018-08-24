@@ -6,6 +6,7 @@ target 'WhosYourCaddieApp' do
   use_frameworks!
 	pod 'Alamofire'
 	pod 'SwiftyJSON'
+	pod "SkeletonView"
 	pod 'SwiftKeychainWrapper', '~>3.0.1'
 	
 	

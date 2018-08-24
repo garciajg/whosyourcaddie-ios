@@ -59,7 +59,6 @@ class SignUpViewController: UIViewController {
     
     @IBAction func didDatePickerChange(_ sender: Any) {
         self.formattedDate()
-        print(self.formattedDate())
     }
     
     
@@ -122,6 +121,10 @@ class SignUpViewController: UIViewController {
                 self.user.state = state
                 self.user.zipcode = zipcode
                 self.user.userType = userType
+                
+                print(dateOfBirth)
+                var age = self.getUserAge(birthDate: dateOfBirth)
+                self.user.age = age
                 
                 
                 self.saveUsersData(password: savedPass, email: savedEmail, userId: self.user.id, token:token)
@@ -202,6 +205,20 @@ class SignUpViewController: UIViewController {
                 vc.user = self.user
             }
         }
+    }
+    
+    //MARK: Get user's age
+    func getUserAge(birthDate:String) -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let formattedDate = dateFormatter.date(from: birthDate)
+        let now = Date()
+        let calendar = Calendar.current
+        let ageComponents = calendar.dateComponents([.year], from: formattedDate!, to: now)
+        let age = ageComponents.year!
+        print(age)
+        
+        return age
     }
     
 }

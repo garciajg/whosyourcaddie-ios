@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (4.7.3)
+  - SkeletonView (1.2.1)
   - SwiftKeychainWrapper (3.0.1)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - Alamofire
+  - SkeletonView
   - SwiftKeychainWrapper (~> 3.0.1)
   - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - SkeletonView
     - SwiftKeychainWrapper
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  SkeletonView: 98a31213f9282076149e6eb23f46734604f02086
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: fe7cbbee64c402f6bd1463903a8408b47a68cf5e
+PODFILE CHECKSUM: 98f9e00b4e8e073be4065f0d9b4b8663d3fa096a
 
 COCOAPODS: 1.5.3

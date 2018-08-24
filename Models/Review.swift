@@ -17,4 +17,5 @@ class Review {
     var golfer : Golfer? = nil
     var caddie : Caddie? = nil
     var id : Int = 0
+    var createdBy : String = ""
 }

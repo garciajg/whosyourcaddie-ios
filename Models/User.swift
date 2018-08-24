@@ -22,7 +22,8 @@ class User {
     var dateOfBirth : String = ""
     var userType : String = ""
     var loops : [Loop] = []
-    var reviews : [Review] = []
+    var reviews = [Review]()
+    var age : Int = 0
 
 }
 
