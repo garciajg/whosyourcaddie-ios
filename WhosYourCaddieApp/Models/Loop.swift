@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Loop {
+class Loop{//}:Equatable, Hashable {
     var startTime : String = ""
     var loopDate : String = ""
     var golfer : Golfer? = nil
@@ -19,4 +19,14 @@ class Loop {
     var accepted : Bool = false
     var isWalking : Bool = true
     var numberOfHoles : String = ""
+    
+//    var hashValue: Int {
+//        get {
+//            return id.hashValue
+//        }
+//    }
 }
+
+//func ==(lhs: Loop, rhs: Loop) -> Bool {
+//    return lhs.id == rhs.id
+//}

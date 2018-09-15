@@ -22,7 +22,7 @@ class User {
     var dateOfBirth : String = ""
     var userType : String = ""
     var loops : [Loop] = []
-    var reviews = [Review]()
+    var reviews : [Review] = []
     var age : Int = 0
 
 }
@@ -30,12 +30,15 @@ class User {
 class Caddie: User {
     
     var user = User()
-
+    var caddieID : Int = 0
     var rating : Double = 0.0
     var greenSkills : Double = 0.0
     
 }
 
 class Golfer:User {
+    var user = User()
+    var golferID : Int = 0
+    
     
 }

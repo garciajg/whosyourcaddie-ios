@@ -1,33 +1,19 @@
 //
-//  QuestionsViewController.swift
+//  VideoViewController.swift
 //  WhosYourCaddieApp
 //
-//  Created by Jose Garcia on 8/23/18.
+//  Created by Jose Garcia on 9/14/18.
 //  Copyright © 2018 Jose Garcia. All rights reserved.
 //
 
 import UIKit
 
-struct Question {
-    let questionText : String
-    let options : [String]
-    let answer : Int
-    var wrongAns : Int
-    var isAnswered : Bool
-    
-}
-
-class QuestionsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewFlowLayout {
-    
-    var myCollectionView:UICollectionView!
-    var questionArray = [Question]()
-    var score : Int = 0
-    var currentQuestionNumber = 1
+class VideoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = ""
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

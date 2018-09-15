@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Review {
+class Review {//:Equatable, Hashable {
     
     var createdOn : String = ""
     var comment : String = ""
@@ -18,4 +18,14 @@ class Review {
     var caddie : Caddie? = nil
     var id : Int = 0
     var createdBy : String = ""
+    
+//    var hashValue: Int {
+//        get {
+//            return id.hashValue
+//        }
+//    }
 }
+
+//func ==(lhs: Review, rhs: Review) -> Bool {
+//    return lhs.id == rhs.id
+//}
