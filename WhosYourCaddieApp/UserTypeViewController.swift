@@ -31,16 +31,16 @@ class UserTypeViewController: UIViewController {
 
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "caddiesegue" {
-            let vc = segue.destination as! SignUpViewController
+        if segue.identifier == "caddiequizsegue" {
+            let vc = segue.destination as! VideoViewController
             self.user.userType = "CADDY"
             vc.user = self.user
-            vc.signUpURL = URL(string: "http://0.0.0.0:8000/caddie/register")
+            
         } else if segue.identifier == "golfersegue" {
             let vc = segue.destination as! SignUpViewController
             self.user.userType = "GOLFR"
             vc.user = self.user
-            vc.signUpURL = URL(string: "http://0.0.0.0:8000/golfer/register")
+            vc.signUpURL = URL(string: "http://0.0.0.0:8000/api/v1/golfer/register")
         }
     }
 

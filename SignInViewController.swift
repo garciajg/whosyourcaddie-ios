@@ -11,7 +11,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import SwiftKeychainWrapper
-
+import AlertTransition
+import LocalAuthentication
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,7 +22,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     var didSignin : Bool = false
     var user = User()
-    var caddie = Caddie()
+    
+    var localTimezone:String {return TimeZone.current.identifier}
     
     var defaults = UserDefaults.standard
     
@@ -31,6 +33,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         // Do any additional setup after loading the view.
+        let email = KeychainWrapper.standard.string(forKey: "email")
+        let password = KeychainWrapper.standard.string(forKey: "password")
+        
+        if email != nil && password != nil {
+            authWithTouchID(self)
+        }
+        
     }
 
     //MARK - TextField Delegate Methods
@@ -48,7 +57,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.delegate = self
         resignFirstResponder()
-        self.postLogin()
+        self.postLogin(email: emailTextField.text!, password: passwordTextField.text!)
         
         return true
     }
@@ -59,7 +68,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         }
         spinner.startAnimating()
         spinner.isHidden = false
-        postLogin()
+        postLogin(email: emailTextField.text!, password: passwordTextField.text!)
     }
     
     @IBAction func didPressSignUpButton(_ sender: Any) {
@@ -99,11 +108,47 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    //MARK: - Parsing JSON Data
-    func postLogin() {
+    func authWithTouchID(_ sender: Any) {
         
-        let parameters : [String:Any] = ["email":emailTextField.text!,
-                                       "password":passwordTextField.text!]
+        let context = LAContext()
+        var error: NSError?
+        
+        
+        // check if Touch ID is available
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            
+            let reason = "Sign in with TouchID"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason, reply:
+                {(succes, error) in
+                   
+                    if succes {
+                        let email = KeychainWrapper.standard.string(forKey: "email")
+                        let password = KeychainWrapper.standard.string(forKey: "password")
+                        self.postLogin(email: email!, password: password!)
+                    }
+                    else {
+                        self.showAlertController("Touch ID Authentication Failed")
+                    }
+            })
+        }
+
+        else {
+            showAlertController("Touch ID not available")
+        }
+    }
+    
+    
+    func showAlertController(_ message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    //MARK: - Parsing JSON Data
+    func postLogin(email:String, password:String) {
+        
+        let parameters : [String:Any] = ["email":email,
+                                       "password":password]
         let signinURL = URL(string: "http://0.0.0.0:8000/login/")
 
         Alamofire.request(signinURL!, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate(statusCode: 200...299).validate().responseJSON { (respData) in
@@ -112,7 +157,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 
             case .success(let value):
                 let json = JSON(value)
-                print(json)
+                
                 
                 let firstName = json["first_name"].string!
                 let lastName = json["last_name"].string!
@@ -126,10 +171,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 let userType = json["user_type"].string!
                 let token = json["token"].string!
                 let id = json["id"].int!
+                let age = json["age"].int!
                 
                 
-                let didSaveToken: Bool = KeychainWrapper.standard.set(token, forKey: "token")
-                print("Saved Token: \(didSaveToken)")
+                let _: Bool = KeychainWrapper.standard.set(token, forKey: "token")
+                let _:Bool = KeychainWrapper.standard.set(password, forKey: "password")
+                let _: Bool = KeychainWrapper.standard.set(email, forKey: "email")
                 
                 self.user.id = id
                 self.user.address = address
@@ -142,6 +189,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 self.user.state = state
                 self.user.zipcode = zipcode
                 self.user.userType = userType
+                self.user.age = age
                 
                 self.spinner.stopAnimating()
                 self.spinner.isHidden = true
@@ -156,6 +204,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    @IBAction func unwindsToSignIn(segue:UIStoryboardSegue) {
+        
+    }
+    
+    
 }
 
 

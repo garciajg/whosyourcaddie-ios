@@ -24,7 +24,7 @@ class User {
     var loops : [Loop] = []
     var reviews : [Review] = []
     var age : Int = 0
-
+    var profilePicture : URL = URL(string: "https://vokal-io.s3.amazonaws.com/da837327b8937691012a89e212e580bc.jpg")!
 }
 
 class Caddie: User {
@@ -33,6 +33,7 @@ class Caddie: User {
     var caddieID : Int = 0
     var rating : Double = 0.0
     var greenSkills : Double = 0.0
+    var ranking : String = ""
     
 }
 

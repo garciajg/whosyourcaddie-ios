@@ -8,6 +8,9 @@
 
 import UIKit
 import MapKit
+import Alamofire
+import SwiftyJSON
+import SwiftKeychainWrapper
 
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark: MKPlacemark)
@@ -20,6 +23,11 @@ class CourseViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController? = nil
     var selectedPin:MKPlacemark? = nil
+    var loop = Loop()
+    var course = Course()
+    var golfer = Golfer()
+    
+    let COURSE_URL = "http://0.0.0.0:8000/api/v1/courses"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,17 +84,11 @@ class CourseViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         
         let reuseID = "pin"
-        
-//        if let pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID) {
-//            pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-//            pinView.ca
-//        }
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
         if pinView == nil {
             pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
 
         }
-//        pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
         let pinImage = #imageLiteral(resourceName: "greenskillspicture")
         let size = CGSize(width: 35, height: 35)
         UIGraphicsBeginImageContext(size)
@@ -109,14 +111,26 @@ class CourseViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         let city = placemark?.locality as! String
         let state = placemark?.administrativeArea as! String
         
-        let message = "Are you sire you want to play \(courseName) in \(city), \(state)"
+        let message = "Are you sure you want to play \(courseName) in \(city), \(state)"
         self.showSelectedCourseAlert(title: courseName, message: message)
 
     }
     
     func showSelectedCourseAlert(title:String, message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let acceptAction = UIAlertAction(title: "Comfirm", style: .default, handler: nil)
+        let acceptAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            let placemark = self.selectedPin
+            if let dict = placemark?.addressDictionary as? NSDictionary {
+                let id = dict.hashValue
+                print("id: \(id)")
+                print("\(dict)")
+            }
+            let lat = placemark?.coordinate.latitude as! Double
+            let lon = placemark?.coordinate.longitude as! Double
+            let name = placemark?.name
+            
+            self.saveCourse(latitude: lat, longitude: lon, courseName: name!)
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(acceptAction)
@@ -133,7 +147,58 @@ class CourseViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+     
     */
+    
+    func saveCourse(latitude:Double, longitude:Double, courseName:String) {
+        let headers = authHeaders()
+        
+        let parameters = [
+            "course_name": courseName,
+            "latitude": latitude,
+            "longitude": longitude
+            ] as [String : Any]
+        print(parameters)
+        
+        Alamofire.request(COURSE_URL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200...299).responseData { (courseData) in
+            switch courseData.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+                let crs = Course()
+                crs.latitude = json["latitude"].float!
+                crs.longitude = json["longitude"].float!
+                crs.name = json["course_name"].string!
+                crs.id = json["id"].int!
+                self.loop.course = crs
+                self.performSegue(withIdentifier: "createloopsegue", sender: self)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
+    
+    
+    //MARK: Headers for Authentication
+    func authHeaders() -> HTTPHeaders {
+        let token = KeychainWrapper.standard.string(forKey: "token") as! String
+        let headers : HTTPHeaders = [
+            "Authorization":"Bearer \(token)",
+            "Accept": "application/json"
+        ]
+        
+        return headers
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createloopsegue" {
+            let vc = segue.destination as! CreateLoopViewController
+            vc.loop = self.loop
+            vc.golfer = self.golfer
+            print("CourseVC GolferID: \(self.golfer.golferID)")
+        }
+    }
 
 }
 

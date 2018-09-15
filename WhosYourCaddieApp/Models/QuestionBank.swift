@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+
+class QuestionBank {
+    var questionsArray : [Question] = []
+    
+     
+}

@@ -22,23 +22,37 @@
 		BE303B6520E2ABB600D653A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE303B6320E2ABB600D653A0 /* LaunchScreen.storyboard */; };
 		BE303B7020E2ABB600D653A0 /* WhosYourCaddieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303B6F20E2ABB600D653A0 /* WhosYourCaddieAppTests.swift */; };
 		BE303B7B20E2ABB600D653A0 /* WhosYourCaddieAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303B7A20E2ABB600D653A0 /* WhosYourCaddieAppUITests.swift */; };
+		BE3B9BC22138444E0009AF5A /* CaddieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B9BC12138444D0009AF5A /* CaddieDetailViewController.swift */; };
+		BE3B9BC4213888990009AF5A /* QuestionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B9BC3213888990009AF5A /* QuestionCollectionViewController.swift */; };
+		BE3B9BC6213888FA0009AF5A /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3B9BC5213888FA0009AF5A /* QuestionCollectionViewCell.swift */; };
 		BE6CE4EE2106A077009C3812 /* UserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CE4ED2106A077009C3812 /* UserTypeViewController.swift */; };
 		BE6E54952118EC6300328C17 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E54942118EC6300328C17 /* ProfileViewController.swift */; };
 		BE6E54972118F46000328C17 /* ProfileReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E54962118F46000328C17 /* ProfileReviewTableViewCell.swift */; };
+		BE7B8B962141EA0E00DD0BDC /* LoopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B8B952141EA0E00DD0BDC /* LoopDetailViewController.swift */; };
+		BE7B8B9821432E2700DD0BDC /* MatchingQuestionCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7B8B9721432E2700DD0BDC /* MatchingQuestionCVC.xib */; };
+		BE7B8B9D2146E5FA00DD0BDC /* LoopsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B8B9C2146E5FA00DD0BDC /* LoopsTableViewCell.swift */; };
+		BE7B8B9F2146E82900DD0BDC /* LoopsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B8B9E2146E82900DD0BDC /* LoopsTableViewController.swift */; };
 		BE7C7611212469CE0031960F /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7C7610212469CE0031960F /* LoginTests.swift */; };
-		BEA31FC7212F1531001BB629 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA31FC6212F1531001BB629 /* QuestionsViewController.swift */; };
+		BE9828B52136DF5D0095E928 /* CreateLoopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9828B42136DF5D0095E928 /* CreateLoopViewController.swift */; };
+		BE9828B921373EF20095E928 /* AvailableCaddiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9828B821373EF10095E928 /* AvailableCaddiesTableViewController.swift */; };
 		BEA31FC9212F200A001BB629 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA31FC8212F2009001BB629 /* Question.swift */; };
-		BEA31FCB212F2042001BB629 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA31FCA212F2042001BB629 /* QuestionBank.swift */; };
+		BEA3200721309724001BB629 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA3200621309723001BB629 /* LocalAuthentication.framework */; };
+		BEBAA759213447830073A152 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBAA758213447830073A152 /* EditProfileViewController.swift */; };
 		BEBC22332124A92800BEAD66 /* Loop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC22322124A92800BEAD66 /* Loop.swift */; };
 		BEBC22362124A96800BEAD66 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC22352124A96800BEAD66 /* Review.swift */; };
 		BEBC22382124AC2C00BEAD66 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC22372124AC2C00BEAD66 /* Course.swift */; };
 		BEBC223A2124D06900BEAD66 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEBC22392124D06900BEAD66 /* Storyboard.storyboard */; };
 		BEBC223E2124D16E00BEAD66 /* CaddieHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC223D2124D16E00BEAD66 /* CaddieHomeViewController.swift */; };
 		BEBC22402124D27E00BEAD66 /* CaddieProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC223F2124D27E00BEAD66 /* CaddieProfileViewController.swift */; };
-		BEBC22422124D31C00BEAD66 /* CaddieLoopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBC22412124D31C00BEAD66 /* CaddieLoopViewController.swift */; };
 		BECB7B9820E2C32E00C47C56 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECB7B9720E2C32E00C47C56 /* SignUpViewController.swift */; };
+		BED143112140283000CB84C5 /* CaddieReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED143102140283000CB84C5 /* CaddieReviewCell.xib */; };
 		BEE1AA1B210788DD00E1EB10 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1AA1A210788DD00E1EB10 /* CourseViewController.swift */; };
 		BEE1AA1D21078F7000E1EB10 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE1AA1C21078F7000E1EB10 /* LocationSearchTableViewController.swift */; };
+		BEF366CA21486C7800CC721A /* MatchingQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF366C921486C7800CC721A /* MatchingQuestionsViewController.swift */; };
+		BEF366CC21486E4000CC721A /* MatchinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF366CB21486E4000CC721A /* MatchinCollectionViewCell.swift */; };
+		BEF366CE21487D3800CC721A /* HoleQuestionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF366CD21487D3800CC721A /* HoleQuestionsCollectionViewCell.swift */; };
+		BEF366D02149507400CC721A /* HoleQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF366CF2149507400CC721A /* HoleQuestionsViewController.swift */; };
+		BEF366D2214C488900CC721A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF366D1214C488900CC721A /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,23 +99,37 @@
 		BE303B7620E2ABB600D653A0 /* WhosYourCaddieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhosYourCaddieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE303B7A20E2ABB600D653A0 /* WhosYourCaddieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosYourCaddieAppUITests.swift; sourceTree = "<group>"; };
 		BE303B7C20E2ABB600D653A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE3B9BC12138444D0009AF5A /* CaddieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaddieDetailViewController.swift; path = CaddieViewControllers/CaddieDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		BE3B9BC3213888990009AF5A /* QuestionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionCollectionViewController.swift; path = "/Users/josegarcia/Desktop/Desktop - Jose’s MacBook Air/Who's Your Caddie/WhosYourCaddieApp/CaddieViewControllers/QuestionCollectionViewController.swift"; sourceTree = "<absolute>"; };
+		BE3B9BC5213888FA0009AF5A /* QuestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE6CE4ED2106A077009C3812 /* UserTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeViewController.swift; sourceTree = "<group>"; };
 		BE6E54942118EC6300328C17 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BE6E54962118F46000328C17 /* ProfileReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewTableViewCell.swift; sourceTree = "<group>"; };
+		BE7B8B952141EA0E00DD0BDC /* LoopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopDetailViewController.swift; sourceTree = "<group>"; };
+		BE7B8B9721432E2700DD0BDC /* MatchingQuestionCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchingQuestionCVC.xib; sourceTree = "<group>"; };
+		BE7B8B9C2146E5FA00DD0BDC /* LoopsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopsTableViewCell.swift; sourceTree = "<group>"; };
+		BE7B8B9E2146E82900DD0BDC /* LoopsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopsTableViewController.swift; sourceTree = "<group>"; };
 		BE7C7610212469CE0031960F /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
-		BEA31FC6212F1531001BB629 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionsViewController.swift; path = CaddieViewControllers/QuestionsViewController.swift; sourceTree = SOURCE_ROOT; };
+		BE9828B42136DF5D0095E928 /* CreateLoopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateLoopViewController.swift; path = "/Users/josegarcia/Desktop/Desktop - Jose’s MacBook Air/Who's Your Caddie/WhosYourCaddieApp/CaddieViewControllers/CreateLoopViewController.swift"; sourceTree = "<absolute>"; };
+		BE9828B821373EF10095E928 /* AvailableCaddiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvailableCaddiesTableViewController.swift; path = "/Users/josegarcia/Desktop/Desktop - Jose’s MacBook Air/Who's Your Caddie/WhosYourCaddieApp/CaddieViewControllers/AvailableCaddiesTableViewController.swift"; sourceTree = "<absolute>"; };
 		BEA31FC8212F2009001BB629 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		BEA31FCA212F2042001BB629 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
+		BEA3200621309723001BB629 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		BEBAA758213447830073A152 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		BEBC22322124A92800BEAD66 /* Loop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loop.swift; sourceTree = "<group>"; };
 		BEBC22352124A96800BEAD66 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		BEBC22372124AC2C00BEAD66 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		BEBC22392124D06900BEAD66 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		BEBC223D2124D16E00BEAD66 /* CaddieHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaddieHomeViewController.swift; path = CaddieViewControllers/CaddieHomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		BEBC223F2124D27E00BEAD66 /* CaddieProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaddieProfileViewController.swift; path = CaddieViewControllers/CaddieProfileViewController.swift; sourceTree = SOURCE_ROOT; };
-		BEBC22412124D31C00BEAD66 /* CaddieLoopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaddieLoopViewController.swift; path = CaddieViewControllers/CaddieLoopViewController.swift; sourceTree = SOURCE_ROOT; };
 		BECB7B9720E2C32E00C47C56 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BED143102140283000CB84C5 /* CaddieReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaddieReviewCell.xib; sourceTree = "<group>"; };
 		BEE1AA1A210788DD00E1EB10 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		BEE1AA1C21078F7000E1EB10 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		BEF366C921486C7800CC721A /* MatchingQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingQuestionsViewController.swift; sourceTree = "<group>"; };
+		BEF366CB21486E4000CC721A /* MatchinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchinCollectionViewCell.swift; sourceTree = "<group>"; };
+		BEF366CD21487D3800CC721A /* HoleQuestionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleQuestionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BEF366CF2149507400CC721A /* HoleQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleQuestionsViewController.swift; sourceTree = "<group>"; };
+		BEF366D1214C488900CC721A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		C380C6581FCFD93215686A55 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4E2A99602B50F308D372B44 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C96D14438AC68F95CBF3B29C /* Pods_WhosYourCaddieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEA3200721309724001BB629 /* LocalAuthentication.framework in Frameworks */,
 				6CA3B3508976D5ED3D7291C1 /* Pods_WhosYourCaddieApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +188,7 @@
 		B17ABF0C99D254F4078A525F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEA3200621309723001BB629 /* LocalAuthentication.framework */,
 				C96D14438AC68F95CBF3B29C /* Pods_WhosYourCaddieApp.framework */,
 				9015EBE85559B7C38E7B9177 /* Pods_WhosYourCaddieAppTests.framework */,
 				7D9B0E302E16B04059DDA7D0 /* Pods_WhosYourCaddieAppUITests.framework */,
@@ -171,9 +201,7 @@
 		BE303B4E20E2ABB100D653A0 = {
 			isa = PBXGroup;
 			children = (
-				BEBC223C2124D11500BEAD66 /* Views */,
 				BEBC223B2124D06F00BEAD66 /* CaddieViewControllers */,
-				BEBC22342124A93500BEAD66 /* Models */,
 				BE303B5920E2ABB100D653A0 /* WhosYourCaddieApp */,
 				BE303B6E20E2ABB600D653A0 /* WhosYourCaddieAppTests */,
 				BE303B7920E2ABB600D653A0 /* WhosYourCaddieAppUITests */,
@@ -196,15 +224,19 @@
 		BE303B5920E2ABB100D653A0 /* WhosYourCaddieApp */ = {
 			isa = PBXGroup;
 			children = (
-				BE6E54962118F46000328C17 /* ProfileReviewTableViewCell.swift */,
-				BE6E54942118EC6300328C17 /* ProfileViewController.swift */,
+				BE7B8B9B2146E5D900DD0BDC /* Cells */,
+				BEBC22342124A93500BEAD66 /* Models */,
+				BEBC223C2124D11500BEAD66 /* Views */,
 				BE0F62B82102315F0099FA53 /* SignInViewController.swift */,
-				BE0F62BA210234000099FA53 /* HomeViewController.swift */,
-				BE6CE4ED2106A077009C3812 /* UserTypeViewController.swift */,
-				BE303B5A20E2ABB100D653A0 /* AppDelegate.swift */,
-				BEE1AA1A210788DD00E1EB10 /* CourseViewController.swift */,
 				BECB7B9720E2C32E00C47C56 /* SignUpViewController.swift */,
+				BE6CE4ED2106A077009C3812 /* UserTypeViewController.swift */,
+				BE0F62BA210234000099FA53 /* HomeViewController.swift */,
+				BE6E54942118EC6300328C17 /* ProfileViewController.swift */,
+				BEE1AA1A210788DD00E1EB10 /* CourseViewController.swift */,
+				BEBAA758213447830073A152 /* EditProfileViewController.swift */,
+				BE303B5A20E2ABB100D653A0 /* AppDelegate.swift */,
 				BEE1AA1C21078F7000E1EB10 /* LocationSearchTableViewController.swift */,
+				BE6E54962118F46000328C17 /* ProfileReviewTableViewCell.swift */,
 				BE261E4E20FFF8B400C0DBF5 /* CaddieListTableViewCell.swift */,
 				BE303B6120E2ABB600D653A0 /* Assets.xcassets */,
 				BE303B6620E2ABB600D653A0 /* Info.plist */,
@@ -231,11 +263,21 @@
 			path = WhosYourCaddieAppUITests;
 			sourceTree = "<group>";
 		};
+		BE7B8B9B2146E5D900DD0BDC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BEF366CD21487D3800CC721A /* HoleQuestionsCollectionViewCell.swift */,
+				BEF366CB21486E4000CC721A /* MatchinCollectionViewCell.swift */,
+				BE3B9BC5213888FA0009AF5A /* QuestionCollectionViewCell.swift */,
+				BE7B8B9C2146E5FA00DD0BDC /* LoopsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		BEBC22342124A93500BEAD66 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				BEA31FC8212F2009001BB629 /* Question.swift */,
-				BEA31FCA212F2042001BB629 /* QuestionBank.swift */,
 				BE0F62BC210628230099FA53 /* User.swift */,
 				BEBC22322124A92800BEAD66 /* Loop.swift */,
 				BEBC22372124AC2C00BEAD66 /* Course.swift */,
@@ -247,10 +289,18 @@
 		BEBC223B2124D06F00BEAD66 /* CaddieViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BEA31FC6212F1531001BB629 /* QuestionsViewController.swift */,
+				BE3B9BC3213888990009AF5A /* QuestionCollectionViewController.swift */,
+				BEF366C921486C7800CC721A /* MatchingQuestionsViewController.swift */,
+				BEF366CF2149507400CC721A /* HoleQuestionsViewController.swift */,
+				BE7B8B952141EA0E00DD0BDC /* LoopDetailViewController.swift */,
+				BE3B9BC12138444D0009AF5A /* CaddieDetailViewController.swift */,
+				BED143102140283000CB84C5 /* CaddieReviewCell.xib */,
+				BE9828B821373EF10095E928 /* AvailableCaddiesTableViewController.swift */,
+				BE9828B42136DF5D0095E928 /* CreateLoopViewController.swift */,
 				BEBC223D2124D16E00BEAD66 /* CaddieHomeViewController.swift */,
 				BEBC223F2124D27E00BEAD66 /* CaddieProfileViewController.swift */,
-				BEBC22412124D31C00BEAD66 /* CaddieLoopViewController.swift */,
+				BE7B8B9E2146E82900DD0BDC /* LoopsTableViewController.swift */,
+				BEF366D1214C488900CC721A /* VideoViewController.swift */,
 			);
 			path = CaddieViewControllers;
 			sourceTree = "<group>";
@@ -261,6 +311,7 @@
 				BE303B5E20E2ABB100D653A0 /* Main.storyboard */,
 				BEBC22392124D06900BEAD66 /* Storyboard.storyboard */,
 				BE303B6320E2ABB600D653A0 /* LaunchScreen.storyboard */,
+				BE7B8B9721432E2700DD0BDC /* MatchingQuestionCVC.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,7 +426,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE303B6520E2ABB600D653A0 /* LaunchScreen.storyboard in Resources */,
+				BE7B8B9821432E2700DD0BDC /* MatchingQuestionCVC.xib in Resources */,
 				BEBC223A2124D06900BEAD66 /* Storyboard.storyboard in Resources */,
+				BED143112140283000CB84C5 /* CaddieReviewCell.xib in Resources */,
 				BE303B6220E2ABB600D653A0 /* Assets.xcassets in Resources */,
 				BE303B6020E2ABB100D653A0 /* Main.storyboard in Resources */,
 			);
@@ -424,16 +477,24 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests/Pods-WhosYourCaddieApp-WhosYourCaddieAppUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AlertTransition/AlertTransition.framework",
+				"${BUILT_PRODUCTS_DIR}/Segmentio/Segmentio.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertTransition.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Segmentio.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -466,16 +527,24 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhosYourCaddieApp/Pods-WhosYourCaddieApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AlertTransition/AlertTransition.framework",
+				"${BUILT_PRODUCTS_DIR}/Segmentio/Segmentio.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertTransition.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Segmentio.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -509,10 +578,14 @@
 			files = (
 				BE0F62BB210234000099FA53 /* HomeViewController.swift in Sources */,
 				BE0F62B92102315F0099FA53 /* SignInViewController.swift in Sources */,
+				BE9828B52136DF5D0095E928 /* CreateLoopViewController.swift in Sources */,
 				BEBC22402124D27E00BEAD66 /* CaddieProfileViewController.swift in Sources */,
+				BE3B9BC6213888FA0009AF5A /* QuestionCollectionViewCell.swift in Sources */,
 				BE6E54952118EC6300328C17 /* ProfileViewController.swift in Sources */,
 				BEBC22332124A92800BEAD66 /* Loop.swift in Sources */,
-				BEBC22422124D31C00BEAD66 /* CaddieLoopViewController.swift in Sources */,
+				BEF366D2214C488900CC721A /* VideoViewController.swift in Sources */,
+				BE7B8B9F2146E82900DD0BDC /* LoopsTableViewController.swift in Sources */,
+				BE7B8B962141EA0E00DD0BDC /* LoopDetailViewController.swift in Sources */,
 				BE6E54972118F46000328C17 /* ProfileReviewTableViewCell.swift in Sources */,
 				BEBC223E2124D16E00BEAD66 /* CaddieHomeViewController.swift in Sources */,
 				BE0F62BD210628230099FA53 /* User.swift in Sources */,
@@ -520,13 +593,20 @@
 				BEE1AA1D21078F7000E1EB10 /* LocationSearchTableViewController.swift in Sources */,
 				BEBC22382124AC2C00BEAD66 /* Course.swift in Sources */,
 				BEBC22362124A96800BEAD66 /* Review.swift in Sources */,
-				BEA31FCB212F2042001BB629 /* QuestionBank.swift in Sources */,
 				BE261E4F20FFF8B400C0DBF5 /* CaddieListTableViewCell.swift in Sources */,
-				BEA31FC7212F1531001BB629 /* QuestionsViewController.swift in Sources */,
 				BEE1AA1B210788DD00E1EB10 /* CourseViewController.swift in Sources */,
 				BE303B5B20E2ABB100D653A0 /* AppDelegate.swift in Sources */,
 				BEA31FC9212F200A001BB629 /* Question.swift in Sources */,
+				BEF366CA21486C7800CC721A /* MatchingQuestionsViewController.swift in Sources */,
+				BEF366CC21486E4000CC721A /* MatchinCollectionViewCell.swift in Sources */,
+				BE9828B921373EF20095E928 /* AvailableCaddiesTableViewController.swift in Sources */,
+				BE7B8B9D2146E5FA00DD0BDC /* LoopsTableViewCell.swift in Sources */,
+				BE3B9BC22138444E0009AF5A /* CaddieDetailViewController.swift in Sources */,
+				BEF366CE21487D3800CC721A /* HoleQuestionsCollectionViewCell.swift in Sources */,
 				BE6CE4EE2106A077009C3812 /* UserTypeViewController.swift in Sources */,
+				BE3B9BC4213888990009AF5A /* QuestionCollectionViewController.swift in Sources */,
+				BEF366D02149507400CC721A /* HoleQuestionsViewController.swift in Sources */,
+				BEBAA759213447830073A152 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +821,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QBXS3VTMU;
 				INFOPLIST_FILE = WhosYourCaddieAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -762,6 +843,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QBXS3VTMU;
 				INFOPLIST_FILE = WhosYourCaddieAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

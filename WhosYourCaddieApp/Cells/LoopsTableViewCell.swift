@@ -9,7 +9,16 @@
 import UIKit
 
 class LoopsTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var userLabel: UILabel!
+    
+    @IBOutlet weak var courseNameLabel: UILabel!
+    @IBOutlet weak var numberOfHolesLabel: UILabel!
+    @IBOutlet weak var walkingLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -34,8 +34,6 @@ class CreateLoopViewController: UIViewController {
         super.viewDidLoad()
         loop.isWalking = isWalking
         loop.numberOfHoles = numberOfHoles
-//        setUpSegmentio()
-        print(loop.course?.name ?? "No course Selected")
         let rightButton = UIBarButtonItem(title: "Caddies",
                                           style: .plain,
                                           target: self,

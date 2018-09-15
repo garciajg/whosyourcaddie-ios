@@ -13,4 +13,19 @@ class HoleQuestionsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var userInput: UITextField!
+    
+    func setUp(question:MatchingQuestion) {
+        switch question.userAnswer {
+        case question.userAnswer:
+            userInput.text = question.userAnswer
+            
+        default:
+            userInput.text = ""
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        userInput.text = userInput.text
+    }
 }

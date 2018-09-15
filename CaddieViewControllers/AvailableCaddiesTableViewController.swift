@@ -51,7 +51,24 @@ class AvailableCaddiesTableViewController: UITableViewController {//}, SkeletonT
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         loop.caddie = caddiesArray[indexPath.row]
-        postLoopData()
+        let caddieName = "\(loop.caddie?.firstName as! String) \(loop.caddie?.lastName as! String)"
+        let courseName = loop.course?.name as! String
+        let time = formatedTime(timeString: loop.startTime)
+        let date = formattedDate(dateString: loop.loopDate)
+        let message = """
+        Caddie: \(caddieName)
+        Course: \(courseName)
+        Time: \(date) at \(time)
+        """
+        
+        let alert = UIAlertController(title: "Confirm Loop", message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            self.postLoopData()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        self.present(alert, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
         
         
@@ -139,11 +156,44 @@ class AvailableCaddiesTableViewController: UITableViewController {//}, SkeletonT
                 let json = JSON(value)
                 print(json)
                 
+                
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
+                print(JSON(loopData.description))
+                if loopData.response?.statusCode == 400 {
+                    let alert = UIAlertController(title: "Sorry!",
+                                                  message: "Loops cannot be created less than 30 minutes from the loop time.",
+                                                  preferredStyle: .alert)
+                    let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                }
                 
             }
         }
+    }
+    
+    func formatedTime(timeString:String) -> String {
+        let myFormatter = DateFormatter()
+        myFormatter.dateFormat = "HH:mm:ss"
+        let d = myFormatter.date(from: timeString)
+        myFormatter.timeStyle = .short
+        let time = myFormatter.string(from: d!)
+        
+        return time
+        
+    }
+    
+    func formattedDate(dateString:String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: dateString)
+        dateFormatter.dateStyle = .medium
+        let dateStr = dateFormatter.string(from: date!)
+        
+        return dateStr
+
+        
     }
     
 

@@ -10,20 +10,32 @@ import Foundation
 
 class Question {
     
-    let questionText = String()
-    let options = [String]()
-    let correctAns = Int()
-    let wrongAns = Int()
-    var isAnswered = Bool()
+    let questionText : String
+    let ansOptions : [String]
+    let correctAnswer : [String]
+    var userAnswers : [String] = []
+    var score : Float = 0.0
     
+    init(text : String, options: [String], correctAns: [String]) {
+        questionText = text
+        ansOptions = options
+        correctAnswer = correctAns
+    }
+}
+
+class MatchingQuestion {
     
+    let questionText : String
+    let ansOptions : [String]
+    let correctAns : String
+    var userAnswer : String = ""
+    var score : Float = 0.0
     
+    //    var questionsArray : [MatchingQuestion] = []
     
-//    init(questionText : String, options: [String], correctAns: Int, wrongAns: Int, isAnswered:Bool) {
-//        <#statements#>
-//    }
-//    
-//
-//
-//let que1 = Question(imgName: "img1", questionText: "What is 2 x 2 ?", options: ["2", "4", "8", "6"], correctAns: 1, wrongAns: -1, isAnswered: false)
+    init(text: String, options:[String], correctA:String) {
+        questionText = text
+        ansOptions = options
+        correctAns = correctA
+    }
 }
