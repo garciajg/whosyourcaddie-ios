@@ -40,11 +40,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     var review = Review()
     var golfer = Golfer()
     
+    var reviewImage : UIImage!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "\(user.firstName) \(user.lastName)"
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
+        
+       roundImage(from: profileImage)
         
         profileLocationLabel.numberOfLines = 1
         profileLocationLabel.adjustsFontSizeToFitWidth = true
@@ -76,6 +81,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.reviewGreenSkillsLabel.text = String(format: "%.2f", rev.greenSkills)
         cell.reviewRatingLabel.text = String(format: "%.2f", rev.rating)
         cell.reviewNameLabel.text = rev.createdBy
+        getProfilePictureForReviews(from: (rev.golfer?.profilePicture)!) { (profImage) in
+            cell.reviewProfileImage.image = profImage
+            self.reviewTableView.reloadData()
+
+        }
+        roundImage(from: cell.reviewProfileImage)
 
         return cell
     }
@@ -117,6 +128,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     let dateOfBirth = json["date_of_birth"].string!
                     let userType = json["user_type"].string!
                     let id = json["caddie_id"].int!
+                    let ranking = json["ranking"].string!
+                    let profilePicture = json["profile_image"].url!
                     
                     for (_, id) in json["loops"]{
                         let loop = Loop()
@@ -139,6 +152,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.caddie.userType = userType
                     self.caddie.rating = rating
                     self.caddie.greenSkills = greenSkils
+                    self.caddie.ranking = ranking
+                    self.caddie.profilePicture = profilePicture
                     
                     self.profileRatingLabel.text = String(format: "%.2f", rating)
                     self.profileGreenSkillsLabel.text = String(format: "%.2f", greenSkils)
@@ -225,14 +240,25 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             // Do stuff with your image
             self.profileImage.image = image
-            self.profileImage.layer.borderWidth = 1
-            self.profileImage.layer.masksToBounds = false
-            self.profileImage.layer.borderColor = UIColor.black.cgColor
-            self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2
-            self.profileImage.clipsToBounds = true
+            
         }
     }
     
+    func getProfilePictureForReviews(from imageURL:URL, completion: @escaping (UIImage) -> Void) {
+        print(imageURL)
+        
+        Alamofire.request(imageURL).responseImage { (response) in
+            print(response)
+            if let image = response.result.value {
+                completion(image)
+            }
+        }
+
+        
+    }
+        
+    
+    //MARK : - Retrive Review Data
     
     func retrieveReviewData() {
         let reviewURL = "http://0.0.0.0:8000/api/v1/reviews"
@@ -254,12 +280,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     rev.rating = Double(dic["rating"].string!)!
                     rev.greenSkills = Double(dic["green_skills"].string!)!
 //                    rev.id = dic["golfer"].int!
+                    self.retrieveGolferForReview(from: dic["golfer"].int!, completion: { (golfer) in
+                        rev.golfer = golfer
+                    })
                     rev.createdBy = dic["created_by"].string!
                     rev.golfer = self.golfer
                     let created = self.formatIncomingDate(dateString: dic["created_on"].string!)
                     rev.createdOn = created
                     
-                    
+                    print(rev.golfer?.profilePicture)
                     reviewsArray.append(rev)
                     
                 }
@@ -271,6 +300,32 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 print(error)
             }
             
+        }
+        
+    }
+    
+    func retrieveGolferForReview(from id:Int, completion: @escaping (Golfer) -> Void) {
+        let golferURL = "http://0.0.0.0:8000/api/v1/golfer/\(id)"
+        let headers = authHeaders()
+        let golfr = Golfer()
+        
+        Alamofire.request(golferURL, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200...299).responseData { (golferData) in
+            switch golferData.result{
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+                golfr.golferID = json["golfer_id"].int!
+                golfr.firstName = json["first_name"].string!
+                golfr.lastName = json["last_name"].string!
+                golfr.profilePicture = json["profile_image"].url!
+                completion(golfr)
+                
+            case .failure(let error):
+                let alert = UIAlertController(title: "Error", message: error as? String, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(alertAction)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
         
     }
@@ -292,9 +347,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: Headers for Authentication
     func authHeaders() -> HTTPHeaders {
-        let token = KeychainWrapper.standard.string(forKey: "token") as! String
+        let token = KeychainWrapper.standard.string(forKey: "token")
         let headers : HTTPHeaders = [
-            "Authorization":"Bearer \(token)",
+            "Authorization":"Bearer \(token!)",
             "Accept": "application/json"
         ]
 
@@ -374,6 +429,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             vc.golfer = self.golfer
             vc.user = self.user
         }
+    }
+    
+    // MAARK: - Round Image Function
+    
+    func roundImage(from imageView: UIImageView) {
+        imageView.layer.borderWidth = 1
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.cornerRadius = imageView.frame.height/2
+        imageView.clipsToBounds = true
     }
     
     func caddieLoopDetails() {
