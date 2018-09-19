@@ -10,7 +10,17 @@ import UIKit
 
 class ProfileReviewTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var reviewProfileImage: UIImageView!
+    @IBOutlet weak var reviewProfileImage: UIImageView!{
+        didSet {
+            reviewProfileImage.layer.borderWidth = 1
+            reviewProfileImage.layer.masksToBounds = false
+            reviewProfileImage.layer.borderColor = UIColor.black.cgColor
+            reviewProfileImage.layer.cornerRadius = self.reviewProfileImage.frame.height/2
+            reviewProfileImage.clipsToBounds = true
+            reviewProfileImage.contentMode = .scaleAspectFill
+            
+        }
+    }
     @IBOutlet weak var reviewRatingImage: UIImageView!
     @IBOutlet weak var reviewGreenSkillsImage: UIImageView!
     

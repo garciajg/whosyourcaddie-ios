@@ -16,7 +16,17 @@ import SkeletonView
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView! {
+        didSet {
+            profileImage.layer.borderWidth = 1
+            profileImage.layer.masksToBounds = false
+            profileImage.layer.borderColor = UIColor.black.cgColor
+            profileImage.layer.cornerRadius = self.profileImage.frame.height/2
+            profileImage.clipsToBounds = true
+            profileImage.contentMode = .scaleAspectFill
+
+        }
+    }
     @IBOutlet weak var createLoopButton: UIButton!
     
     var user = User()
@@ -25,6 +35,8 @@ class HomeViewController: UIViewController {
     var review = Review()
     var golfer = Golfer()
     var currentDayLoop = Loop()
+    
+    var isLoopTdy : Bool = false
     
     let CADDIE_URL = "http://0.0.0.0:8000/api/v1/caddie"
     let GOLFER_URL = "http://0.0.0.0:8000/api/v1/golfer"
@@ -39,20 +51,38 @@ class HomeViewController: UIViewController {
             getCaddieData(url: CADDIE_URL)
             createLoopButton.isEnabled = false
             createLoopButton.isHidden = true
-            welcomeLabel.isUserInteractionEnabled = true
             
             let gesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapLoopLabel(sender:)))
             welcomeLabel.addGestureRecognizer(gesture)
             
+            getProfilePicture { (profImage) in
+                
+                //            self.profileImage.image = profImage
+                //            self.profileImage.contentMode = .scaleAspectFill
+                self.caddie.profImg = profImage
+                self.profileImage.image = self.caddie.profImg
+                
+            }
+            
         } else if user.userType == "GOLFR" {
             getGolferData(url: GOLFER_URL)
-        }
-        getProfilePicture()
-    }
+            getProfilePicture { (profImage) in
+                
+                //            self.profileImage.image = profImage
+                //            self.profileImage.contentMode = .scaleAspectFill
+                self.golfer.profImg = profImage
+                self.profileImage.image = self.golfer.profImg
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+            }
+        }
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if self.user.userType == "CADDY" {
+            getCaddieData(url: CADDIE_URL)
+        }
     }
 
     @IBAction func didTapViewProfile(_ sender: Any) {
@@ -137,21 +167,16 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func getProfilePicture() {
+    func getProfilePicture(completion: @escaping (UIImage) -> Void) {
         let imageURL = user.profilePicture
-        
+        print(imageURL)
         Alamofire.request(imageURL, method: .get).responseImage { response in
             guard let image = response.result.value else {
                 // Handle error
                 return
             }
             // Do stuff with your image
-            self.profileImage.image = image
-            self.profileImage.layer.borderWidth = 1
-            self.profileImage.layer.masksToBounds = false
-            self.profileImage.layer.borderColor = UIColor.black.cgColor
-            self.profileImage.layer.cornerRadius = self.profileImage.frame.height/2
-            self.profileImage.clipsToBounds = true
+            completion(image)
         }
     }
     
@@ -161,7 +186,6 @@ class HomeViewController: UIViewController {
         
         let headers = authHeaders()
         let lp = Loop()
-        var isLoopTdy : Bool = false
         
         Alamofire.request(LOOP_URL, headers: headers).validate(statusCode: 200...299).responseJSON { (loopData) in
             switch loopData.result {
@@ -197,15 +221,17 @@ class HomeViewController: UIViewController {
                     if self.isLoopToday(dateAsString: lp.loopDate) == true {
                         let loopRemiderMessage = "Seems like you have loop today at \(loopTime). Touch here to see the details."
                         self.welcomeLabel.text = loopRemiderMessage
-                        self.welcomeLabel.isUserInteractionEnabled = true
                         self.currentDayLoop = lp
-                        isLoopTdy = true
+                        self.isLoopTdy = true
                         
                     } else if self.isLoopToday(dateAsString: lp.loopDate) == false {
 //                        self.welcomeLabel.isUserInteractionEnabled = false
                         print("sorry")
                     }
                     
+                    if self.isLoopTdy == true {
+                        self.welcomeLabel.isUserInteractionEnabled = true
+                    }
                     if self.caddie.loops.count < 1 {
                         self.welcomeLabel.text = "Hey \(self.caddie.firstName), seems like you have no loops. Just be patient."
                     }
@@ -229,9 +255,9 @@ class HomeViewController: UIViewController {
     
     //MARK: Headers for Authentication
     public func authHeaders() -> HTTPHeaders {
-        let token = KeychainWrapper.standard.string(forKey: "token") as! String
+        let token = KeychainWrapper.standard.string(forKey: "token")
         let headers : HTTPHeaders = [
-            "Authorization":"Bearer \(token)",
+            "Authorization":"Bearer \(token!)",
             "Accept": "application/json"
         ]
         
@@ -332,8 +358,10 @@ class HomeViewController: UIViewController {
     }
     
     @objc func didTapLoopLabel(sender: UITapGestureRecognizer) {
-        print("I've been touched")
-        performSegue(withIdentifier: "loopdetailsegue", sender: self)
+        if isLoopTdy == true {
+            print("I've been touched")
+            performSegue(withIdentifier: "loopdetailsegue", sender: self)
+        }
     }
     
     func formatedTime(timeString:String) -> String {
@@ -345,6 +373,12 @@ class HomeViewController: UIViewController {
         
         return time
         
+    }
+    
+    @IBAction func unwindsToHomeViewController(segue:UIStoryboardSegue) {
+        let vc = segue.source as! LoopDetailViewController
+        vc.caddie = caddie
+        getCaddieData(url: CADDIE_URL)
     }
     
     

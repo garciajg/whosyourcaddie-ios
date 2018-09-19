@@ -172,6 +172,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 let token = json["token"].string!
                 let id = json["id"].int!
                 let age = json["age"].int!
+                let profileImg = json["profile_image"].url!
                 
                 
                 let _: Bool = KeychainWrapper.standard.set(token, forKey: "token")
@@ -190,6 +191,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 self.user.zipcode = zipcode
                 self.user.userType = userType
                 self.user.age = age
+                self.user.profilePicture = profileImg
                 
                 self.spinner.stopAnimating()
                 self.spinner.isHidden = true

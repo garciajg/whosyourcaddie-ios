@@ -34,12 +34,14 @@ class Caddie: User {
     var rating : Double = 0.0
     var greenSkills : Double = 0.0
     var ranking : String = ""
+    var profImg = UIImage()
     
 }
 
 class Golfer:User {
     var user = User()
     var golferID : Int = 0
-    
+    var profImg = UIImage()
+
     
 }

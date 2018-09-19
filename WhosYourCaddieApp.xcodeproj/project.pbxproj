@@ -10,6 +10,11 @@
 		128E1849D42C2D24A718BC47 /* Pods_WhosYourCaddieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9015EBE85559B7C38E7B9177 /* Pods_WhosYourCaddieAppTests.framework */; };
 		6AFCBA05B8EEB0B9EE74FA0D /* Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8097CD45B9047A58DC8ACF4D /* Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework */; };
 		6CA3B3508976D5ED3D7291C1 /* Pods_WhosYourCaddieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96D14438AC68F95CBF3B29C /* Pods_WhosYourCaddieApp.framework */; };
+		8250FB6F215049CA003338AF /* AvailableCaddiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8250FB6E215049CA003338AF /* AvailableCaddiesViewController.swift */; };
+		8250FB71215049ED003338AF /* CaddieLoopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8250FB70215049ED003338AF /* CaddieLoopViewController.swift */; };
+		8250FB7321504A1C003338AF /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8250FB7221504A1B003338AF /* QuestionsViewController.swift */; };
+		8250FB7521504A32003338AF /* MatchingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8250FB7421504A32003338AF /* MatchingCollectionViewController.swift */; };
+		8250FB7721504A4D003338AF /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8250FB7621504A4D003338AF /* ReviewCell.xib */; };
 		84AF2A4051B2E5E40F0FA35F /* Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F69F8FD87DBF7D5E9B8545 /* Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework */; };
 		BABB423767A397DC83E7B42F /* Pods_WhosYourCaddieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B0E302E16B04059DDA7D0 /* Pods_WhosYourCaddieAppUITests.framework */; };
 		BE0F62B92102315F0099FA53 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F62B82102315F0099FA53 /* SignInViewController.swift */; };
@@ -79,6 +84,11 @@
 		5EF7256F1B543D48B19FBF76 /* Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieApp-WhosYourCaddieAppTests/Pods-WhosYourCaddieApp-WhosYourCaddieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D9B0E302E16B04059DDA7D0 /* Pods_WhosYourCaddieAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8097CD45B9047A58DC8ACF4D /* Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieApp_WhosYourCaddieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8250FB6E215049CA003338AF /* AvailableCaddiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableCaddiesViewController.swift; sourceTree = "<group>"; };
+		8250FB70215049ED003338AF /* CaddieLoopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaddieLoopViewController.swift; sourceTree = "<group>"; };
+		8250FB7221504A1B003338AF /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		8250FB7421504A32003338AF /* MatchingCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingCollectionViewController.swift; sourceTree = "<group>"; };
+		8250FB7621504A4D003338AF /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		83AC76F4C26C511859B85150 /* Pods-WhosYourCaddieAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieAppUITests/Pods-WhosYourCaddieAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9015EBE85559B7C38E7B9177 /* Pods_WhosYourCaddieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5B73FF40BB500238871FAB /* Pods-WhosYourCaddieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieAppUITests/Pods-WhosYourCaddieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,7 +110,7 @@
 		BE303B7A20E2ABB600D653A0 /* WhosYourCaddieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosYourCaddieAppUITests.swift; sourceTree = "<group>"; };
 		BE303B7C20E2ABB600D653A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE3B9BC12138444D0009AF5A /* CaddieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaddieDetailViewController.swift; path = CaddieViewControllers/CaddieDetailViewController.swift; sourceTree = SOURCE_ROOT; };
-		BE3B9BC3213888990009AF5A /* QuestionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionCollectionViewController.swift; path = "/Users/josegarcia/Desktop/Desktop - Jose’s MacBook Air/Who's Your Caddie/WhosYourCaddieApp/CaddieViewControllers/QuestionCollectionViewController.swift"; sourceTree = "<absolute>"; };
+		BE3B9BC3213888990009AF5A /* QuestionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionCollectionViewController.swift; path = "/Users/jose/Projects/whosyourcaddie-ios/CaddieViewControllers/QuestionCollectionViewController.swift"; sourceTree = "<absolute>"; };
 		BE3B9BC5213888FA0009AF5A /* QuestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE6CE4ED2106A077009C3812 /* UserTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeViewController.swift; sourceTree = "<group>"; };
 		BE6E54942118EC6300328C17 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -110,8 +120,8 @@
 		BE7B8B9C2146E5FA00DD0BDC /* LoopsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopsTableViewCell.swift; sourceTree = "<group>"; };
 		BE7B8B9E2146E82900DD0BDC /* LoopsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopsTableViewController.swift; sourceTree = "<group>"; };
 		BE7C7610212469CE0031960F /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
-		BE9828B42136DF5D0095E928 /* CreateLoopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateLoopViewController.swift; path = "/Users/josegarcia/Desktop/Desktop - Jose’s MacBook Air/Who's Your Caddie/WhosYourCaddieApp/CaddieViewControllers/CreateLoopViewController.swift"; sourceTree = "<absolute>"; };
-		BE9828B821373EF10095E928 /* AvailableCaddiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvailableCaddiesTableViewController.swift; path = "/Users/josegarcia/Desktop/Desktop - Jose’s MacBook Air/Who's Your Caddie/WhosYourCaddieApp/CaddieViewControllers/AvailableCaddiesTableViewController.swift"; sourceTree = "<absolute>"; };
+		BE9828B42136DF5D0095E928 /* CreateLoopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateLoopViewController.swift; path = "/Users/jose/Projects/whosyourcaddie-ios/CaddieViewControllers/CreateLoopViewController.swift"; sourceTree = "<absolute>"; };
+		BE9828B821373EF10095E928 /* AvailableCaddiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AvailableCaddiesTableViewController.swift; path = "/Users/jose/Projects/whosyourcaddie-ios/CaddieViewControllers/AvailableCaddiesTableViewController.swift"; sourceTree = "<absolute>"; };
 		BEA31FC8212F2009001BB629 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		BEA3200621309723001BB629 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		BEBAA758213447830073A152 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -290,12 +300,17 @@
 			isa = PBXGroup;
 			children = (
 				BE3B9BC3213888990009AF5A /* QuestionCollectionViewController.swift */,
+				8250FB7221504A1B003338AF /* QuestionsViewController.swift */,
 				BEF366C921486C7800CC721A /* MatchingQuestionsViewController.swift */,
+				8250FB7421504A32003338AF /* MatchingCollectionViewController.swift */,
 				BEF366CF2149507400CC721A /* HoleQuestionsViewController.swift */,
 				BE7B8B952141EA0E00DD0BDC /* LoopDetailViewController.swift */,
 				BE3B9BC12138444D0009AF5A /* CaddieDetailViewController.swift */,
+				8250FB7621504A4D003338AF /* ReviewCell.xib */,
 				BED143102140283000CB84C5 /* CaddieReviewCell.xib */,
 				BE9828B821373EF10095E928 /* AvailableCaddiesTableViewController.swift */,
+				8250FB70215049ED003338AF /* CaddieLoopViewController.swift */,
+				8250FB6E215049CA003338AF /* AvailableCaddiesViewController.swift */,
 				BE9828B42136DF5D0095E928 /* CreateLoopViewController.swift */,
 				BEBC223D2124D16E00BEAD66 /* CaddieHomeViewController.swift */,
 				BEBC223F2124D27E00BEAD66 /* CaddieProfileViewController.swift */,
@@ -427,6 +442,7 @@
 			files = (
 				BE303B6520E2ABB600D653A0 /* LaunchScreen.storyboard in Resources */,
 				BE7B8B9821432E2700DD0BDC /* MatchingQuestionCVC.xib in Resources */,
+				8250FB7721504A4D003338AF /* ReviewCell.xib in Resources */,
 				BEBC223A2124D06900BEAD66 /* Storyboard.storyboard in Resources */,
 				BED143112140283000CB84C5 /* CaddieReviewCell.xib in Resources */,
 				BE303B6220E2ABB600D653A0 /* Assets.xcassets in Resources */,
@@ -581,15 +597,19 @@
 				BE9828B52136DF5D0095E928 /* CreateLoopViewController.swift in Sources */,
 				BEBC22402124D27E00BEAD66 /* CaddieProfileViewController.swift in Sources */,
 				BE3B9BC6213888FA0009AF5A /* QuestionCollectionViewCell.swift in Sources */,
+				8250FB71215049ED003338AF /* CaddieLoopViewController.swift in Sources */,
 				BE6E54952118EC6300328C17 /* ProfileViewController.swift in Sources */,
 				BEBC22332124A92800BEAD66 /* Loop.swift in Sources */,
 				BEF366D2214C488900CC721A /* VideoViewController.swift in Sources */,
 				BE7B8B9F2146E82900DD0BDC /* LoopsTableViewController.swift in Sources */,
+				8250FB7521504A32003338AF /* MatchingCollectionViewController.swift in Sources */,
 				BE7B8B962141EA0E00DD0BDC /* LoopDetailViewController.swift in Sources */,
 				BE6E54972118F46000328C17 /* ProfileReviewTableViewCell.swift in Sources */,
 				BEBC223E2124D16E00BEAD66 /* CaddieHomeViewController.swift in Sources */,
+				8250FB6F215049CA003338AF /* AvailableCaddiesViewController.swift in Sources */,
 				BE0F62BD210628230099FA53 /* User.swift in Sources */,
 				BECB7B9820E2C32E00C47C56 /* SignUpViewController.swift in Sources */,
+				8250FB7321504A1C003338AF /* QuestionsViewController.swift in Sources */,
 				BEE1AA1D21078F7000E1EB10 /* LocationSearchTableViewController.swift in Sources */,
 				BEBC22382124AC2C00BEAD66 /* Course.swift in Sources */,
 				BEBC22362124A96800BEAD66 /* Review.swift in Sources */,

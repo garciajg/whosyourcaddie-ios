@@ -14,7 +14,17 @@ import SkeletonView
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!{
+        didSet {
+            profileImage.layer.borderWidth = 1
+            profileImage.layer.masksToBounds = false
+            profileImage.layer.borderColor = UIColor.black.cgColor
+            profileImage.layer.cornerRadius = self.profileImage.frame.height/2
+            profileImage.clipsToBounds = true
+            profileImage.contentMode = .scaleAspectFill
+            
+        }
+    }
     @IBOutlet weak var ratingImage: UIImageView!
     @IBOutlet weak var greenSkillsImage: UIImageView!
     
@@ -45,9 +55,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        retrieveReviewData()
         self.navigationItem.title = "\(user.firstName) \(user.lastName)"
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
+        
+        profileRankingLabel.font = profileRankingLabel.font.withSize(profileRankingLabel.frame.height * 2/3)
         
        roundImage(from: profileImage)
         
@@ -58,11 +71,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.navigationItem.rightBarButtonItem = rightButton
         
-        reviewTableView.reloadData()
+//        reviewTableView.reloadData()
         setupSkeletonView()
         getUserProfileData()
-        getProfilePicture()
-        retrieveReviewData()
+        if user.userType == "CADDY" {
+            profileImage.image = caddie.profImg
+        } else {
+            profileImage.image = golfer.profImg
+        }
+//        getProfilePicture()
 
     }
     
@@ -81,11 +98,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.reviewGreenSkillsLabel.text = String(format: "%.2f", rev.greenSkills)
         cell.reviewRatingLabel.text = String(format: "%.2f", rev.rating)
         cell.reviewNameLabel.text = rev.createdBy
-        getProfilePictureForReviews(from: (rev.golfer?.profilePicture)!) { (profImage) in
-            cell.reviewProfileImage.image = profImage
-            self.reviewTableView.reloadData()
+        cell.reviewProfileImage.image = rev.golfer?.profImg
 
-        }
         roundImage(from: cell.reviewProfileImage)
 
         return cell
@@ -157,6 +171,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                     self.profileRatingLabel.text = String(format: "%.2f", rating)
                     self.profileGreenSkillsLabel.text = String(format: "%.2f", greenSkils)
+                    switch ranking {
+                    case "BCADDY":
+                        self.profileRankingLabel.text = "B CADDIE"
+                    
+                    case "ACADDY":
+                        self.profileRankingLabel.text = "A CADDIE"
+                        
+                    case "HCADDY":
+                        self.profileRankingLabel.text = "HONOR CADDIE"
+                        
+                    default:
+                        self.profileRankingLabel.text = ""
+                    }
                     
                     let age = self.getUserAge(birthDate: self.caddie.dateOfBirth)
                     self.caddie.age = age
@@ -165,8 +192,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.profileLocationLabel.text = "From: \(city), \(state)"
                     
                 case .failure(let error):
-                    
                     print(error)
+                    
                 }
             }
         } else if user.userType == "GOLFR" {
@@ -223,34 +250,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.profileLocationLabel.text = "From: \(city), \(state)"
                     
                 case .failure(let error):
-                    
                     print(error)
+                    
                 }
             }
         }
     }
     
-    func getProfilePicture() {
-        let imageURL = user.profilePicture
-        
-        Alamofire.request(imageURL, method: .get).responseImage { response in
-            guard let image = response.result.value else {
-                // Handle error
-                return
-            }
-            // Do stuff with your image
-            self.profileImage.image = image
-            
-        }
-    }
     
     func getProfilePictureForReviews(from imageURL:URL, completion: @escaping (UIImage) -> Void) {
         print(imageURL)
         
         Alamofire.request(imageURL).responseImage { (response) in
-            print(response)
             if let image = response.result.value {
+                
                 completion(image)
+                
+
             }
         }
 
@@ -270,7 +286,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             switch reviewData.result {
             case .success(let value):
                 let json = JSON(value)
-                print(json)
                 for (_, dic) in json {
                     let rev = Review()
                     
@@ -279,19 +294,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     rev.comment = dic["comment"].string!
                     rev.rating = Double(dic["rating"].string!)!
                     rev.greenSkills = Double(dic["green_skills"].string!)!
-//                    rev.id = dic["golfer"].int!
                     self.retrieveGolferForReview(from: dic["golfer"].int!, completion: { (golfer) in
                         rev.golfer = golfer
                     })
                     rev.createdBy = dic["created_by"].string!
-                    rev.golfer = self.golfer
                     let created = self.formatIncomingDate(dateString: dic["created_on"].string!)
                     rev.createdOn = created
-                    
-                    print(rev.golfer?.profilePicture)
                     reviewsArray.append(rev)
-                    
                 }
+                
                 self.caddie.reviews = reviewsArray
                 self.reviewTableView.reloadData()
                 self.removeSkeletonView()
@@ -304,6 +315,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    
     func retrieveGolferForReview(from id:Int, completion: @escaping (Golfer) -> Void) {
         let golferURL = "http://0.0.0.0:8000/api/v1/golfer/\(id)"
         let headers = authHeaders()
@@ -313,11 +325,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             switch golferData.result{
             case .success(let value):
                 let json = JSON(value)
-                print(json)
                 golfr.golferID = json["golfer_id"].int!
                 golfr.firstName = json["first_name"].string!
                 golfr.lastName = json["last_name"].string!
                 golfr.profilePicture = json["profile_image"].url!
+                self.getProfilePictureForReviews(from: json["profile_image"].url!, completion: { (golferImg) in
+                    golfr.profImg = golferImg
+                    self.reviewTableView.reloadData()
+                })
                 completion(golfr)
                 
             case .failure(let error):

@@ -1277,8 +1277,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACK-h1-yCK">
-                                <rect key="frame" x="317" y="83" width="41" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACK-h1-yCK">
+                                <rect key="frame" x="281" y="83" width="77" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -2103,11 +2103,13 @@
                         <outlet property="loopCourseMapView" destination="6ey-z8-0TX" id="VRU-dI-EFP"/>
                         <outlet property="loopDetailLabel" destination="2AL-gx-yKV" id="j5H-3N-tQh"/>
                         <segue destination="2t9-QO-80h" kind="show" identifier="allloopssegue" id="Pr2-Mz-Z7f"/>
+                        <segue destination="hd1-U6-ZSV" kind="unwind" identifier="unwindtohome" unwindAction="unwindsToHomeViewControllerWithSegue:" id="C4e-ur-dd6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TfB-HR-S9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hd1-U6-ZSV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="108" y="-640.02998500749629"/>
+            <point key="canvasLocation" x="202" y="-1326"/>
         </scene>
         <!--Location Search Table View Controller-->
         <scene sceneID="Ndi-1Y-Lqg">

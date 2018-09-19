@@ -36,7 +36,6 @@ class LoopDetailViewController: UIViewController, MKMapViewDelegate {
 
         if loop.accepted == true {
             
-            
             let message = """
             Your loop is at \(loopTime) today with \(loop.golfer?.firstName as! String) \(loop.golfer?.lastName as! String). \n
             It will be at \(loop.course?.name as! String). Make sure you arrive at least 15 minutes early for warm up. Have fun!
@@ -129,9 +128,20 @@ class LoopDetailViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func didPressCancelLoop(_ sender: Any) {
         if loop.accepted == true {
-            self.cancelLoop()
+            self.cancelLoop { 
+                self.cancelLoopButton.isUserInteractionEnabled = false
+                self.cancelLoopButton.isHidden = true
+                if let index = self.caddie.loops.index(where: { $0.id == self.loop.id}) {
+                    self.caddie.loops.remove(at: index)
+                }
+                self.performSegue(withIdentifier: "unwindtohome", sender: self)
+            }
         } else if loop.accepted == false {
-            self.acceptLoop()
+            self.acceptLoop { (loop) in
+                self.cancelLoopButton.setTitle("Cancel Loop", for: .normal)
+                self.cancelLoopButton.setTitleColor(.white, for: .normal)
+                self.cancelLoopButton.backgroundColor = .red
+            }
         }
     }
     
@@ -164,22 +174,23 @@ class LoopDetailViewController: UIViewController, MKMapViewDelegate {
     }
     
     
-    @objc func cancelLoop() {
+    func cancelLoop(completion: @escaping () -> Void) {
         let CANCEL_URL = "http://0.0.0.0:8000/api/v1/loops/\(loop.id)/cancel"
         let headers = authHeaders()
         
         Alamofire.request(CANCEL_URL, method: .post, headers: headers).validate(statusCode: 200...299).response { (response) in
-            print(response.data)
+            
+            completion()
         }
     }
     
-    @objc func acceptLoop() {
+    func acceptLoop(completion: @escaping (Loop) -> Void) {
         let ACCEPT_URL = "http://0.0.0.0:8000/api/v1/loops/\(loop.id)/accept"
         let headers = authHeaders()
-        print("You clicked me!")
         
         Alamofire.request(ACCEPT_URL, method: .post, headers: headers).validate(statusCode: 200...299).response { (response) in
-            print(response.data)
+            self.loop.accepted = true
+            completion(self.loop)
         }
     }
     
