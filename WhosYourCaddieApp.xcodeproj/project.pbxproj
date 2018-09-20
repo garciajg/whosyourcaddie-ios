@@ -15,6 +15,7 @@
 		8250FB7321504A1C003338AF /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8250FB7221504A1B003338AF /* QuestionsViewController.swift */; };
 		8250FB7521504A32003338AF /* MatchingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8250FB7421504A32003338AF /* MatchingCollectionViewController.swift */; };
 		8250FB7721504A4D003338AF /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8250FB7621504A4D003338AF /* ReviewCell.xib */; };
+		829BC5A42152FDD6001BAD49 /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 829BC5A32152FDD6001BAD49 /* loading_animation.json */; };
 		84AF2A4051B2E5E40F0FA35F /* Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F69F8FD87DBF7D5E9B8545 /* Pods_WhosYourCaddieApp_WhosYourCaddieAppUITests.framework */; };
 		BABB423767A397DC83E7B42F /* Pods_WhosYourCaddieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9B0E302E16B04059DDA7D0 /* Pods_WhosYourCaddieAppUITests.framework */; };
 		BE0F62B92102315F0099FA53 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F62B82102315F0099FA53 /* SignInViewController.swift */; };
@@ -89,6 +90,7 @@
 		8250FB7221504A1B003338AF /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		8250FB7421504A32003338AF /* MatchingCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingCollectionViewController.swift; sourceTree = "<group>"; };
 		8250FB7621504A4D003338AF /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		829BC5A32152FDD6001BAD49 /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
 		83AC76F4C26C511859B85150 /* Pods-WhosYourCaddieAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieAppUITests/Pods-WhosYourCaddieAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9015EBE85559B7C38E7B9177 /* Pods_WhosYourCaddieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhosYourCaddieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5B73FF40BB500238871FAB /* Pods-WhosYourCaddieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhosYourCaddieAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhosYourCaddieAppUITests/Pods-WhosYourCaddieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +197,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		829BC5A22152FDB7001BAD49 /* Lottiefiles */ = {
+			isa = PBXGroup;
+			children = (
+				829BC5A32152FDD6001BAD49 /* loading_animation.json */,
+			);
+			path = Lottiefiles;
+			sourceTree = "<group>";
+		};
 		B17ABF0C99D254F4078A525F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +244,7 @@
 		BE303B5920E2ABB100D653A0 /* WhosYourCaddieApp */ = {
 			isa = PBXGroup;
 			children = (
+				829BC5A22152FDB7001BAD49 /* Lottiefiles */,
 				BE7B8B9B2146E5D900DD0BDC /* Cells */,
 				BEBC22342124A93500BEAD66 /* Models */,
 				BEBC223C2124D11500BEAD66 /* Views */,
@@ -443,6 +454,7 @@
 				BE303B6520E2ABB600D653A0 /* LaunchScreen.storyboard in Resources */,
 				BE7B8B9821432E2700DD0BDC /* MatchingQuestionCVC.xib in Resources */,
 				8250FB7721504A4D003338AF /* ReviewCell.xib in Resources */,
+				829BC5A42152FDD6001BAD49 /* loading_animation.json in Resources */,
 				BEBC223A2124D06900BEAD66 /* Storyboard.storyboard in Resources */,
 				BED143112140283000CB84C5 /* CaddieReviewCell.xib in Resources */,
 				BE303B6220E2ABB600D653A0 /* Assets.xcassets in Resources */,

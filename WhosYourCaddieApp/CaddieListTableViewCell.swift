@@ -9,7 +9,17 @@
 import UIKit
 
 class CaddieListTableViewCell: UITableViewCell {
-    @IBOutlet weak var caddiePhoto: UIImageView!
+    @IBOutlet weak var caddiePhoto: UIImageView!{
+        didSet {
+            caddiePhoto.layer.borderWidth = 1
+            caddiePhoto.layer.masksToBounds = false
+            caddiePhoto.layer.borderColor = UIColor.black.cgColor
+            caddiePhoto.layer.cornerRadius = caddiePhoto.frame.height/2
+            caddiePhoto.clipsToBounds = true
+            caddiePhoto.contentMode = .scaleAspectFill
+        }
+    }
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var greenSkillsLabel: UILabel!

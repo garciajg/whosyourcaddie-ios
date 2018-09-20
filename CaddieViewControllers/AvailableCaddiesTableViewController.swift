@@ -11,6 +11,7 @@ import Alamofire
 import SwiftKeychainWrapper
 import SwiftyJSON
 import SkeletonView
+import Lottie
 
 class AvailableCaddiesTableViewController: UITableViewController {//}, SkeletonTableViewDataSource {
     
@@ -20,17 +21,12 @@ class AvailableCaddiesTableViewController: UITableViewController {//}, SkeletonT
     var loop = Loop()
     var localTimeZone : String {return TimeZone.current.identifier}
     
+    let animationView = LOTAnimationView(name: "loading_animation")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        print("Course Name: \(loop.course!.name)")
-        print("Loop Start Time: \(loop.startTime)")
-        print("Local Timezone: \(localTimeZone)")
-        print("Loop Date: \(loop.loopDate)")
-        print(loop.isWalking)
-        print("Golfer ID: \(golfer.golferID)")
-        print("Caddie ID: \(loop.caddie?.caddieID)")
         
         getAllAvailableCaddies()
     }
@@ -83,8 +79,10 @@ class AvailableCaddiesTableViewController: UITableViewController {//}, SkeletonT
         let roundedGreenS = String(format: "%.2f", caddy.greenSkills)
         cell.greenSkillsLabel.text = roundedGreenS
         cell.ratingLabel.text = roundedRating
+        cell.rankingLabel.text = caddy.ranking
         cell.nameLabel.text = "\(caddy.firstName) \(caddy.lastName)"
         cell.locationLabel.text = "\(caddy.city), \(caddy.state)"
+        cell.caddiePhoto.image = caddy.profImg
         
         return cell
     }
@@ -108,6 +106,13 @@ class AvailableCaddiesTableViewController: UITableViewController {//}, SkeletonT
                     caddy.state = caddie["state"].string!
                     caddy.city = caddie["city"].string!
                     caddy.caddieID = caddie["caddie_id"].int!
+                    let ranking = self.formatRanking(ranking: caddie["ranking"].string!)
+                    caddy.ranking = ranking
+
+                    self.getProfilePictureForReviews(from: caddie["profile_image"].url!, completion: { (profImg) in
+                        caddy.profImg = profImg
+                        self.tableView.reloadData()
+                    })
                     
                     self.caddiesArray.append(caddy)
                 }
@@ -133,6 +138,20 @@ class AvailableCaddiesTableViewController: UITableViewController {//}, SkeletonT
     
     
     func postLoopData() {
+        
+        animationView.isHidden = false
+        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        animationView.center = self.view.center
+        animationView.contentMode = .scaleAspectFit
+        animationView.backgroundColor = .gray
+        animationView.layer.cornerRadius = animationView.frame.size.height / 8
+        animationView.clipsToBounds = true
+        view.addSubview(animationView)
+        animationView.loopAnimation = true
+        animationView.animationSpeed = 1.5
+        
+        animationView.play()
+        
         let parameters = [
             "start_time":loop.startTime,
             "loop_date":loop.loopDate,
@@ -155,11 +174,15 @@ class AvailableCaddiesTableViewController: UITableViewController {//}, SkeletonT
             case .success(let value):
                 let json = JSON(value)
                 print(json)
+                self.animationView.stop()
+                self.animationView.isHidden = true
                 
                 
             case .failure(let error):
-                print(error.localizedDescription)
-                print(JSON(loopData.description))
+                
+                self.animationView.stop()
+                self.animationView.isHidden = true
+
                 if loopData.response?.statusCode == 400 {
                     let alert = UIAlertController(title: "Sorry!",
                                                   message: "Loops cannot be created less than 30 minutes from the loop time.",
@@ -196,29 +219,57 @@ class AvailableCaddiesTableViewController: UITableViewController {//}, SkeletonT
         
     }
     
+    
+    //MARK: - Format Ranking
+    func formatRanking(ranking:String) -> String {
+        if ranking == "BCADDY" {
+            return "B Caddie"
+        } else if ranking == "ACADDY" {
+            return "A Caddie"
+        } else {
+            return "Honor"
+        }
+    }
+    
 
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+     
         if let cell = sender as? CaddieListTableViewCell {
             let i = self.tableView.indexPath(for: cell)!.row
             if segue.identifier == "caddiedetailsegue"{
-//                if let indexPath = self.tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! CaddieDetailViewController
                 let caddy = self.caddiesArray[i] 
                 print(caddy.firstName)
                 vc.caddie = caddy
                 vc.loop = self.loop
                 vc.golfer = self.golfer
-//                }
             }
         }
      }
     
     
+    //MARK: - Get caddies profiles pictures
+    func getProfilePictureForReviews(from imageURL:URL, completion: @escaping (UIImage) -> Void) {
+        print(imageURL)
+        
+        Alamofire.request(imageURL).responseImage { (response) in
+            if let image = response.result.value {
+                
+                completion(image)
+            } else {
+                let alert = UIAlertController(title: "Error",
+                                              message: "There has been an error while downloading your profile picture.",
+                                              preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+
 
     
 }

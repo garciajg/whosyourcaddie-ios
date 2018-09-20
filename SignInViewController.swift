@@ -13,6 +13,7 @@ import SwiftyJSON
 import SwiftKeychainWrapper
 import AlertTransition
 import LocalAuthentication
+import Lottie
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
@@ -23,6 +24,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     var didSignin : Bool = false
     var user = User()
     
+    let animationView = LOTAnimationView(name: "loading_animation")
+    
     var localTimezone:String {return TimeZone.current.identifier}
     
     var defaults = UserDefaults.standard
@@ -30,9 +33,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         spinner.isHidden = true
+        
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
-        // Do any additional setup after loading the view.
+        
         let email = KeychainWrapper.standard.string(forKey: "email")
         let password = KeychainWrapper.standard.string(forKey: "password")
         
@@ -62,10 +66,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.resignFirstResponder()
+    }
+    
     @IBAction func didPressLogIn(_ sender: Any) {
         if emailTextField.text?.isEmpty == true || passwordTextField.text?.isEmpty == true {
+            animationView.stop()
+
             self.presentAlert(title: "Log In Error", message: "Email or Password Empty")
         }
+        
         spinner.startAnimating()
         spinner.isHidden = false
         postLogin(email: emailTextField.text!, password: passwordTextField.text!)
@@ -77,7 +88,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+
+
         if segue.identifier == "tohome" {
             let vc = segue.destination as! HomeViewController
             vc.user = self.user
@@ -150,6 +162,19 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         let parameters : [String:Any] = ["email":email,
                                        "password":password]
         let signinURL = URL(string: "http://0.0.0.0:8000/login/")
+        
+        animationView.isHidden = false
+        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        animationView.center = self.view.center
+        animationView.contentMode = .scaleAspectFit
+        animationView.backgroundColor = .gray
+        animationView.layer.cornerRadius = animationView.frame.size.height / 8
+        animationView.clipsToBounds = true
+        view.addSubview(animationView)
+        animationView.loopAnimation = true
+        animationView.animationSpeed = 1.5
+        
+        animationView.play()
 
         Alamofire.request(signinURL!, method: .post, parameters: parameters, encoding: JSONEncoding.default).validate(statusCode: 200...299).validate().responseJSON { (respData) in
             
@@ -196,13 +221,19 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 self.spinner.stopAnimating()
                 self.spinner.isHidden = true
                 self.didSignin = true
+                
                 self.performSegue(withIdentifier: "tohome", sender: self)
+                self.animationView.stop()
+                self.animationView.isHidden = true
                 
             case .failure(let error):
                 self.presentAlert(title: "Login Error", message: error.localizedDescription)
                 self.spinner.stopAnimating()
                 self.spinner.isHidden = true
                 self.didSignin = false
+                
+                self.animationView.stop()
+                self.animationView.isHidden = true
             }
         }
     }

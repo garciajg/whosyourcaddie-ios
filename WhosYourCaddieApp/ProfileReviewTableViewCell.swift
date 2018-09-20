@@ -21,6 +21,7 @@ class ProfileReviewTableViewCell: UITableViewCell {
             
         }
     }
+    
     @IBOutlet weak var reviewRatingImage: UIImageView!
     @IBOutlet weak var reviewGreenSkillsImage: UIImageView!
     

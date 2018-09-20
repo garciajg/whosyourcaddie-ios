@@ -32,9 +32,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileGreenSkillsLabel: UILabel!
     @IBOutlet weak var profileRankingLabel: UILabel!
     @IBOutlet weak var profileAgeLabel: UILabel!
-    @IBOutlet weak var profileLocationLabel: UILabel!
+    @IBOutlet weak var profileLocationLabel: UILabel!{
+        didSet {
+            profileLocationLabel.numberOfLines = 1
+            profileLocationLabel.adjustsFontSizeToFitWidth = true
+        }
+    }
     
-    @IBOutlet weak var editProfileButton: UIButton!
+    @IBOutlet weak var editProfileButton: UIButton! {
+        didSet {
+            editProfileButton.layer.cornerRadius = editProfileButton.frame.size.height / 2
+            editProfileButton.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var reviewTableView: UITableView! {
         didSet{
             reviewTableView.rowHeight = UITableViewAutomaticDimension
@@ -57,6 +67,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         retrieveReviewData()
         self.navigationItem.title = "\(user.firstName) \(user.lastName)"
+        
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         
@@ -64,14 +75,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
        roundImage(from: profileImage)
         
-        profileLocationLabel.numberOfLines = 1
-        profileLocationLabel.adjustsFontSizeToFitWidth = true
+//        profileLocationLabel.numberOfLines = 1
+//        profileLocationLabel.adjustsFontSizeToFitWidth = true
         
         let rightButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(self.logout(sender:)))
         
         self.navigationItem.rightBarButtonItem = rightButton
         
-//        reviewTableView.reloadData()
         setupSkeletonView()
         getUserProfileData()
         if user.userType == "CADDY" {
@@ -79,7 +89,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             profileImage.image = golfer.profImg
         }
-//        getProfilePicture()
+
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getUserProfileData()
 
     }
     
@@ -458,6 +473,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func caddieLoopDetails() {
         editProfileButton.setTitle("Request \(caddie.firstName)", for: .normal)
+        
+    }
+    
+    @IBAction func unwindsToProfileViewController(segue:UIStoryboardSegue) {
+        
+        let vc = segue.source as! EditProfileViewController
+        vc.caddie = caddie
+        vc.golfer = golfer
+        vc.user = user
+        
+        if user.userType == "CADDY" {
+            self.title = "\(caddie.firstName) \(caddie.lastName)"
+        } else {
+            self.title = "\(golfer.firstName) \(golfer.lastName)"
+        }
         
     }
 }

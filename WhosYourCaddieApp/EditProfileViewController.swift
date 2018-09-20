@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SwiftKeychainWrapper
+import Lottie
 
 
 
@@ -31,8 +35,11 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
+        if user.userType == "CADDY" {
+            populateCaddieFields()
+        } else {
+            populateGolferFields()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +47,14 @@ class EditProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func didPressSave(_ sender: Any) {
+        
+        if user.userType == "CADDY" {
+            patchCaddieData()
+        } else {
+            patchGolferData()
+        }
+        
+        
     }
     
 
@@ -64,8 +79,123 @@ class EditProfileViewController: UIViewController {
         editStateField.text = caddie.state
         editZipcodeField.text = caddie.zipcode
         editCityField.text = caddie.city
-
+    }
+    
+    
+    //MARK: - Setup Golfer Fields
+    func populateGolferFields() {
+        editFirstNameField.text = golfer.firstName
+        editLastNameField.text = golfer.lastName
+        editEmailField.text = golfer.email
+        editPhoneNumberField.text = golfer.phoneNumber
+        editAddressField.text = golfer.address
+        editStateField.text = golfer.state
+        editZipcodeField.text = golfer.zipcode
+        editCityField.text = golfer.city
+    }
+    
+    
+    //MARK: - Patch Caddie Data
+    
+    func patchCaddieData() {
         
+        let PATCH_URL = "http://0.0.0.0:8000/api/v1/caddie/\(caddie.caddieID)"
+        
+        let parameters : [String:Any] = [
+            "first_name"   : editFirstNameField?.text ?? "",
+            "last_name"    : editLastNameField?.text ?? "",
+            "email"        : editEmailField?.text ?? "",
+            "phone_number" : editPhoneNumberField?.text ?? "",
+            "address"      : editAddressField?.text ?? "",
+            "state"        : editStateField?.text ?? "",
+            "zipcode"      : editZipcodeField?.text ?? "",
+            "city"         : editCityField?.text ?? ""
+        ]
+        
+        let headers = authHeaders()
+        
+        Alamofire.request(PATCH_URL, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200...299).responseData { (patchData) in
+            switch patchData.result {
+            case .success(let value):
+                let json = JSON(value)
+
+                self.caddie.firstName = json["first_name"].string!
+                self.caddie.lastName = json["last_name"].string!
+                self.caddie.email = json["email"].string!
+                self.caddie.phoneNumber = json["phone_number"].string!
+                self.caddie.address = json["address"].string!
+                self.caddie.state = json["state"].string!
+                self.caddie.zipcode = json["zipcode"].string!
+                self.caddie.city = json["city"].string!
+                
+                
+                self.performSegue(withIdentifier: "unwindtoprofilesegue", sender: self)
+                
+            case .failure(let error):
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
+    //MARK: - Patch Gofler Data
+    func patchGolferData() {
+        
+        let PATCH_URL = "http://0.0.0.0:8000/api/v1/caddie/\(golfer.golferID)"
+        
+        let parameters : [String:Any] = [
+            "first_name"   : editFirstNameField?.text ?? "",
+            "last_name"    : editLastNameField?.text ?? "",
+            "email"        : editEmailField?.text ?? "",
+            "phone_number" : editPhoneNumberField?.text ?? "",
+            "address"      : editAddressField?.text ?? "",
+            "state"        : editStateField?.text ?? "",
+            "zipcode"      : editZipcodeField?.text ?? "",
+            "city"         : editCityField?.text ?? ""
+        ]
+        
+        let headers = authHeaders()
+        
+        Alamofire.request(PATCH_URL, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200...299).responseData { (patchData) in
+            switch patchData.result {
+            case .success(let value):
+                let json = JSON(value)
+                
+                self.golfer.firstName = json["first_name"].string!
+                self.golfer.lastName = json["last_name"].string!
+                self.golfer.email = json["email"].string!
+                self.golfer.phoneNumber = json["phone_number"].string!
+                self.golfer.address = json["address"].string!
+                self.golfer.state = json["state"].string!
+                self.golfer.zipcode = json["zipcode"].string!
+                self.caddie.city = json["city"].string!
+                
+                self.performSegue(withIdentifier: "unwindtoprofilesegue", sender: self)
+                
+            case .failure(let error):
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
+    //MARK: - Authentication Headers
+    public func authHeaders() -> HTTPHeaders {
+        let token = KeychainWrapper.standard.string(forKey: "token")
+        let headers : HTTPHeaders = [
+            "Authorization":"Bearer \(token!)",
+            "Accept": "application/json"
+        ]
+        
+        return headers
     }
 
 }

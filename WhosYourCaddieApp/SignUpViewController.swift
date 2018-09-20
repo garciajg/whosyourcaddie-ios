@@ -11,6 +11,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import SwiftKeychainWrapper
+import Lottie
 
 class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -50,10 +51,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController.
-//    }
-//    
+
     @IBAction func didPressSignUp(_ sender: Any) {
         canSignUp = fieldsPass()
         
@@ -78,6 +76,8 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.formattedDate()
     }
     
+    //MARK: - PickerView Delegates for US States options
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -95,7 +95,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     
-    
+    //MARK: - Formats date of birth for API Request
     
     func formattedDate() -> String {
         let dateFormatter = DateFormatter()

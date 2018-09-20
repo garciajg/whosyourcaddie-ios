@@ -56,9 +56,6 @@ class HomeViewController: UIViewController {
             welcomeLabel.addGestureRecognizer(gesture)
             
             getProfilePicture { (profImage) in
-                
-                //            self.profileImage.image = profImage
-                //            self.profileImage.contentMode = .scaleAspectFill
                 self.caddie.profImg = profImage
                 self.profileImage.image = self.caddie.profImg
                 
@@ -67,9 +64,6 @@ class HomeViewController: UIViewController {
         } else if user.userType == "GOLFR" {
             getGolferData(url: GOLFER_URL)
             getProfilePicture { (profImage) in
-                
-                //            self.profileImage.image = profImage
-                //            self.profileImage.contentMode = .scaleAspectFill
                 self.golfer.profImg = profImage
                 self.profileImage.image = self.golfer.profImg
 
@@ -91,7 +85,6 @@ class HomeViewController: UIViewController {
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "profilesegue" {
@@ -172,13 +165,18 @@ class HomeViewController: UIViewController {
         print(imageURL)
         Alamofire.request(imageURL, method: .get).responseImage { response in
             guard let image = response.result.value else {
-                // Handle error
+                let alert = UIAlertController(title: "Error Downloading Image",
+                                              message: "There has been an error while trying to download your profile picture.",
+                                              preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(alertAction)
+                self.present(alert, animated: true, completion: nil)
                 return
             }
-            // Do stuff with your image
             completion(image)
         }
     }
+    
     
     //MARK: Retireve Loop Data
     func retrieveLoopData(id:Int) {
@@ -224,14 +222,12 @@ class HomeViewController: UIViewController {
                         self.currentDayLoop = lp
                         self.isLoopTdy = true
                         
-                    } else if self.isLoopToday(dateAsString: lp.loopDate) == false {
-//                        self.welcomeLabel.isUserInteractionEnabled = false
-                        print("sorry")
                     }
                     
                     if self.isLoopTdy == true {
                         self.welcomeLabel.isUserInteractionEnabled = true
                     }
+                    
                     if self.caddie.loops.count < 1 {
                         self.welcomeLabel.text = "Hey \(self.caddie.firstName), seems like you have no loops. Just be patient."
                     }
@@ -304,12 +300,7 @@ class HomeViewController: UIViewController {
         return false
     }
     
-//    func getCaddie(id:Int) -> Caddie {
-//
-//        let CADDIE_URL = "http://0.0.0.0:8000/api/v1/caddie/\(id)"
-//        Alamofire.request(CADDIE_URL, method: <#T##HTTPMethod#>, parameters: <#T##Parameters?#>, encoding: <#T##ParameterEncoding#>, headers: <#T##HTTPHeaders?#>)
-//    }
-    
+    // MARK: - Gets golfer data for caddies
     func getGofler(id:Int) -> Golfer {
         
         let GOLFER_URL = "http://0.0.0.0:8000/api/v1/golfer/\(id)"
@@ -330,6 +321,8 @@ class HomeViewController: UIViewController {
         return golfr
     }
     
+    
+    //MARK: - Gets course data to populate in case there's a loop the current day
     func getCourse(id:Int) -> Course {
         
         let COURSE_URL = "http://0.0.0.0:8000/api/v1/courses/\(id)"
@@ -356,6 +349,7 @@ class HomeViewController: UIViewController {
         
         return course
     }
+    
     
     @objc func didTapLoopLabel(sender: UITapGestureRecognizer) {
         if isLoopTdy == true {
